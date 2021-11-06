@@ -1,0 +1,185 @@
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{pdflscape}	% Landscape pages
+\usepackage{amsmath} % or simply amstext
+\newcommand{\angstrom}{\text{\normalfont\AA}}
+\usepackage{color}
+\usepackage{times}
+%\usepackage[space]{grffile}
+\usepackage{cleveref}
+%\usepackage[normalem]{ulem}
+%\usepackage{natbib}
+%\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{comment}
+%\bibpunct{(}{)}{;}{a}{}{,}
+\usepackage{url}
+
+This example manuscript is intended to serve as a tutorial and template for
+authors to use when writing their own AAS Journal articles. The manuscript
+includes a history of \aastex\ and documents the new features in the
+previous versions as well as the bug fixes in version 6.31. This
+manuscript includes many figure and table examples to illustrate these new
+features.  Information on features not explicitly mentioned in the article
+can be viewed in the manuscript comments or more extensive online
+documentation. Authors are welcome replace the text, tables, figures, and
+bibliography with their own and submit the resulting manuscript to the AAS
+Journals peer review system.  The first lesson in the tutorial is to remind
+authors that the AAS Journals, the Astrophysical Journal (ApJ), the
+Astrophysical Journal Letters (ApJL), the Astronomical Journal (AJ), and
+the Planetary Science Journal (PSJ) all have a 250 word limit for the 
+abstract\footnote{Abstracts for Research Notes of the American Astronomical 
+Society (RNAAS) are limited to 150 words}.  If you exceed this length the
+Editorial office will ask you to shorten it. This abstract has 182 words.
+
+
+\begin{figure}
+\centering
+	% To include a figure from a file named example.*
+	% Allowable file formats are eps or ps if compiling using latex
+	% or pdf, png, jpg if compiling using pdflatex
+	\includegraphics[width=0.8\textwidth]{W1_lc_select.png}
+    \caption{WISE light curve in $W1$ band of six CLAGNs with evident long-term infrared variability. }
+    \label{fig:W1_lc}
+\end{figure}
+
+
+
+To quantitatively study variability, we calculated the intrinsic 
+amplitude of variability ($\sigma_m$), which is the variance of the observed light curve after removing the measurement uncertainty \citep[see also][]{2017ApJ...842...96R}. The $\sigma_m$ is calculated using the following formalism described in \citet{2007AJ....134.2236S}.
+\begin{equation}
+\Sigma=\sqrt{\frac{1}{n-1}\sum_{i=1}^{N}(m_i - <m>)^2},
+\end{equation}
+where $m_i$ is the magnitude at $i$-th point and $<m>$ is the weighted average.
+The amplitude of variability  can be written as  
+$\sigma_m$ is             
+\[\sigma_m  =
+  \begin{cases}
+    \sqrt{\Sigma^2 - \epsilon^2},  & \quad \text{if } \Sigma>\epsilon,\\
+     0,                            & \quad  \text{otherwise.}\\
+  \end{cases}
+\]	               
+where the error $\epsilon$ is calculated from the individual errors as follows
+\begin{equation}
+\epsilon^2=\frac{1}{N}\sum_{i=i}^{N}{\epsilon_{i}^{2} + \epsilon_{s}^2}. 
+\end{equation}
+Here $\epsilon_{i}$ is the measurement uncertainty of $i$-th point and $\epsilon_{s}$ is the systematic uncertainty. \citet{2011ApJ...735..112J} reported systematic uncertainties of 0.024 mag and 0.028 mag in $W$1 and $W$2 respectively. Therefore, this error has been added in quadrature to the measurement uncertainty and thus taking care of systematic as well as random errors. Spurious correlation may occur if $\sigma_m$ is not corrected for the redshift of the object, especially important for a flux-limited sample, we, therefore, calculated rest frame $\sigma_m$ by multiplying $\sigma_m$ with $\sqrt{(1+z)}$, which is based on the power spectral
+density of variability having slope 2 \citep[see][]{2009ApJ...698..895K}. However, the majority ($\sim 87\%$) of the variable candidates in our sample is below $z=0.4$, thus, redshift correction is insignificant.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{X-ray data}
+\subsubsection{\xrt}
+The X-ray telescope (XRT) onboard \swift\, has high cadence-monitoring observations of the CLAGN sample. We use {\sc xselect} to extract the source and background spectra. The spectra are grouped by the a minimum of one count per bin. The XRT spectra in the 0.5--10~keV range are fitted by an absorbed power-law model \texttt{tbabs*zpowerlw} with the Galactic hydrogen absorption using the Bayesian X-ray Analysis software BXA \footnote{\url{http://johannesbuchner.github.io/BXA/index.html}} \citep[][]{2014A&A...564A.125B}.
+
+
+\subsubsection{\maxi}
+\textit{MAXI} \citep{2009PASJ...61..999M} onboard the International Space Station (ISS) performed all-sky monitor since 2009 August 15 with the Gas Slit Cameras (GSCs; \citealt{2011PASJ...63S.623M}) 
+  in 2--30~keV and the Solid-state Slit Cameras (SSC; \citealt{2011PASJ...63..397T}) in 0.5--12~keV. Several CLAGNs has been monitored almost daily by \textit{MAXI}.  We extracted the light curves of CLAGNs with 1 day bin \footnote{\url{http://maxi.riken.jp/top/slist.html}}. 
+
+  
+
+
+\subsection{Optical V-band data}
+\subsubsection{\uvot\,V-band}
+ We use the tool \textit{uvotsource} to do the aperture photometry for V-band data of \uvot\,. The source aperture radius is 5$\arcsec$ and the background is chosen in a blank region with a much larger radius.
+
+
+\subsubsection{ASAS-SN\,V-band data}
+We used the photometric data of NGC 1566 from the ASAS-SN \citep[All-sky Automated Survey for Supernovae,][]{2014ApJ...788...48S,2017PASP..129j4502K,2019MNRAS.485..961J}. ASAS-SN \citep[][]{2018ATel11893....1D} reported the brightening of NGC 1566 around September 2017, which is brightest in July 2018. We determined the average offset between the simultaneous (within 1 day of interval) ASAS-SN and \uvot\, V-band data. Then the ASAS-SN\,V-band magnitude was reduced to the V-band of \uvot\, system.
+
+
+
+\begin{figure}
+\centering
+	% To include a figure from a file named example.*
+	% Allowable file formats are eps or ps if compiling using latex
+	% or pdf, png, jpg if compiling using pdflatex
+	\includegraphics[width=0.9\textwidth]{pic/wisename_varO_0.2.png}
+    \caption{{\it WISE} light curves of Optical selected CLAGNs with $\sigma_{m W1} > 0.2$. }
+    \label{fig:O-CLAGN-lc}
+\end{figure}
+
+
+\begin{figure}
+\centering
+	% To include a figure from a file named example.*
+	% Allowable file formats are eps or ps if compiling using latex
+	% or pdf, png, jpg if compiling using pdflatex
+	\includegraphics[width=0.5\textwidth]{pic/wisename_varO_left.png}
+    \caption{{\it WISE} light curves of Optical selected highly variable CLAGNs for illustration.} 
+    \label{fig:O-CLAGN-lc-left}
+\end{figure}
+
+
+\begin{figure}
+\centering
+	% To include a figure from a file named example.*
+	% Allowable file formats are eps or ps if compiling using latex
+	% or pdf, png, jpg if compiling using pdflatex
+	\includegraphics[width=0.8\textwidth]{pic/wisename_varO_mag0.4.png}
+    \caption{{\it WISE} light curves of Optical selected highly variable CLAGNs for illustration. The black dashed line marks the epoch when the source is Type 1. The black dot-dashed line marks the epoch when the source is Type 1.5. The grey dotted line marks the epoch when the source is Type 1.9/2.} 
+    \label{fig:O-CLAGN-lc}
+\end{figure}
+
+
+\subsection{MIR variability timescale}
+We fited the light curves using a damped random walk model in {\sc javelin} algorithm \citep[][]{2011ApJ...735...80Z,2013ApJ...765..106Z} to estimate the MIR variability timescale. We limited the range of timescale within $90-10^{6}$ days due to its 180 day's sampling rate and 10 year's monitoring. We find the distributions of timescale are guassian-like with log${\uptau _{W1}}\sim 2.35\pm 0.01$ and log ${\uptau_{W2}}\sim 2.47\pm 0.02$. The ratio between ${\uptau _{W1}}$ and ${\uptau _{W2}}$ is $\sim 3:4$ ($225:298$). We ploted the distributions of MIR variability timescale in \autoref{fig:distribution_MIRtimescale}.
+
+\begin{figure}
+\centering
+	% To include a figure from a file named example.*
+	% Allowable file formats are eps or ps if compiling using latex
+	% or pdf, png, jpg if compiling using pdflatex
+	\includegraphics[width=0.45\textwidth]{pic/WISE_timescale.png}
+    \caption{Distribution of the MIR variability timescale ($\uptau$) of CLAGNs.}
+    \label{fig:distribution_MIRtimescale}
+\end{figure}
+
+
+%2017PASP..129j4502K
+%At the resolution of ASAS-SN, the local crowding will tend to change the light curve by some constant in flux, distorting its shape
+% Contamination due to the local crowding will generally distort an ASAS-SN light curve by an additive constant in flux.
+
+
+Combining the results from literature, we plot the dust-reverberation time lag ($\tau_{W1}$) and bolometric luminosity ($L_\mathrm{bol}$) relation of AGNs in \autoref{fig:tau_L}. \citet[][]{2019ApJ...886...33L} reported that the inferred dust emission size ratios $R_\mathrm{K}$: $R_{W1}$: $R_{W2}$ are $0.6: 1: 1.2$. So we multiplied $\tau_\mathrm{K}$ in \citet[][]{2014ApJ...788..159K,2019ApJ...886...33L} by a factor of 5/3. We used UltraNest\footnote{\url{https://johannesbuchner.github.io/UltraNest/}} package \citep{2021JOSS....6.3001B} to fit the linear log$\tau$-log$L_{bol}$ relation for Type 1s, Type 2s, and CLAGNs with errors considered. The fitting results show a slope of $0.36 \pm 0.04$, an offset of $2.13 \pm 0.03$, and a scatter of $0.17 \pm 0.02$. Though the slope ($0.36 \pm 0.04$) is slightly lower than the slope ($0.47 \pm 0.06$) from fitting of PG quasars in \citet[][]{2019ApJ...886...33L}, the $\tau$-$L_{bol}$ relation are consistent for CLAGNs and normal AGNs with scatter.
+
+
+%Seyfert 1.5 galaxy Mrk 530 experienced twice ``changing-look'' \citep{2019sf2a.conf..509M} during 1974-1998 and underwent a transition from a soft to hard spectrum with \suzaku\, in 2012 \citep{2018MNRAS.478.4214E}. The MIR light curve shows gradually decline of luminosity in recent years.
+
+
+%NGC 7582 is a X-ray bright Seyfert galaxy, which changed from type 2 to type 1 in 1998 \citep{2019sf2a.conf..509M}. NGC 7582 showed highly variable absorption features around 2000 \citep{2015ApJ...815...55R}. NGC 7582 experienced an outburst in MIR band around November 2018, reached the bright luminosity level around November 2010. NGC 7582 are slowly dimming.
+
+%\subsection{MIR Variability timescale}
+
+
+%\subsection{Possible mechanism for ``changing-look'' }
+%NGC 1566, NGC 4151 and NGC 5548 experienced multiple outbursts \citep{2020A&A...641A.167S}. 
+%The long-term MIR variability of some sources (e.g. NGC 4051, NGC 4151, NGC 4395, NGC 5548) is also complex. 
+
+
+%\subsection{Sources might be changing look again?}
+
+
+
+
+
+
+
+
+%\section{Discussion} \label{sec:dis}
