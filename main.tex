@@ -99,6 +99,7 @@
 \usepackage{amsmath}	% Advanced maths commands
 \usepackage{amssymb}	% Extra maths symbols
 \usepackage{upgreek}
+%\usepackage{subcaption}
 \newcommand{\vdag}{(v)^\dagger}
 \newcommand\aastex{AAS\TeX}
 \newcommand\latex{La\TeX}
@@ -117,6 +118,9 @@
 \newcommand{\xrt}{{\small {\it Swift}/XRT}}
 \newcommand{\uvot}{{\small {\it Swift}/UVOT}}
 %\texorpdfstring
+
+\usepackage{tikz}
+\usetikzlibrary{matrix}
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
 %\received{March 1, 2021}
@@ -173,7 +177,7 @@
 %%
 %% If you wish, you may supply running head information, although
 %% this information may be modified by the editorial offices.
-\shorttitle{Evidence for CLAGNs in a transition state}
+\shorttitle{{\it WISE} view of CLAGNs}
 \shortauthors{Lyu et al.}
 %%
 %% You can add a light gray and diagonal water-mark to the first page 
@@ -192,7 +196,7 @@
 
 \begin{document}
 
-\title{{\it WISE} view of Changing-Look AGNs: Evidence for a transition stage of AGNs}
+\title{{\it WISE} view of changing-look AGNs: evidence for a transitional stage of AGNs}
 
 %% LaTeX will automatically break titles if they run longer than
 %% one line. However, you may use \\ to force a line break if
@@ -288,16 +292,7 @@ No.96, JinZhai Road Baohe District, Hefei, Anhui, 230026, China \\}
 
 %% Mark off the abstract in the ``abstract'' environment. 
 \begin{abstract}
-The discovery of changing-look active galactic nuclei (CLAGNs) with the rapid change of optical broad emission lines (optical CLAGNs) or line-of-sight column densities (X-ray CLAGNs) challenges the orientation-based AGN unification, where the physical mechanism is unclear (in particular for X-ray CLAGNs). We explore mid-infrared (MIR) properties for a sample of 57 optical CLAGNs and 13 X-ray CLAGNs based on the {\it WISE} survey. We find that the Eddington-scaled MIR luminosities of CLAGNs stay between low-luminosity AGNs (LLAGNs) and QSOs. The CLAGNs show stronger variabilities and a wider distribution of infrared colors[W1($\sim 3.4\mu$m)-W2 ($\sim 4.5\mu$m)] compared to LLAGNs and QSOs. These results support that the CLAGNs stay in a transition stage at the bolometric Eddington ratio of $\sim$1\%, where they easily suffer the luminosity variation due to the transition of accretion modes. We estimate the dust echo time lag for 10 CLAGNs, where the tight correlation between the time lag and the luminosity ($\tau - L$) for CLAGNs is a little bit shallower but roughly follows that found in bright QSOs. {\color{red}We don't find evident differences between X-ray CLAGNs and optical CLAGNs based on the above analyses.} We suggest that the X-ray CLAGNs may be also triggered by variation of accretion rate, where the change of absorption may be triggered by the variation of disk winds that can be observed at a moderate inclination angle. 
-
-
-  
-%The discovery of changing-look active galactic nuclei (CLAGNs) in recent years with rapid change of optical broad emission lines and/or change of line-of-sight column densities challenges the AGN unified model. The origin of changing-look phenomena is still unclear, but there is some evidence supporting the scenario of the change of the intrinsic accretion rate as the explanation of changing-look phenomena in the most of cases. The emission and variability from mid-infrared (MIR) band are good tracers of the activity of nuclei. We search a sample of CLAGNs with significant variability and study their intrinsic amplitude of variability ($\sigma_m$) in MIR band. There is significant stronger MIR variability in optical CLAGNs than that of X-ray CLAGNs, low-luminosity AGN (LLAGNs), and luminous quasi-stellar objects (QSOs). The MIR Eddington scaled luminosity distribution of CLAGNs is centred between quiescent LLAGNs and luminous QSOs. The mean Eddington scaled MIR luminosity $\sim 0.5$ per cent is close to the critical value of state transition between a radiatively inefficient accretion flow and a thin accretion disk. The distributions of MIR luminosity and color ($W1$-$W2$) suggest that CLAGNs are in transitional accretion state with extreme variability. Besides, there is a tight correlation between dust echo time lag and the luminosity ($\tau - L$) for CLAGNs, which again confirms the influence of accretion process.
-
-
-% The first lesson in the tutorial is to remindauthors that the AAS Journals, the Astrophysical Journal (ApJ), the Astrophysical Journal Letters (ApJL), the Astronomical Journal (AJ), and the Planetary Science Journal (PSJ) all have a 250 word limit for the abstract\footnote{Abstracts for Research Notes of the American Astronomical Society (RNAAS) are limited to 150 words}.
-
-
+The discovery of changing-look active galactic nuclei (CLAGNs) with the rapid change of optical broad emission lines (optical CLAGNs) and/or strong variation of line-of-sight column densities (X-ray CLAGNs) challenges the orientation-based AGN unification model. The physical mechanism is unclear for these two types of CLAGNs. We explore mid-infrared (mid-IR) properties for a sample of 57 optical CLAGNs and 13 X-ray CLAGNs based on the {\it Wide-field Infrared Survey Explorer} ({\it WISE}) data. We find that Eddington-scaled mid-IR luminosities of CLAGNs stay just between low-luminosity AGNs (LLAGNs) and luminous QSOs. The CLAGNs show stronger variabilities compared to those of LLAGNs and QSOs. The result supports that the CLAGNs stay in a transitional stage, and they easily suffer the luminosity variation due to the transition of accretion modes with accretion rate at several percent of Eddington ratio. We estimate the mid-IR time lags for 15 bright CLAGNs with strong mid-IR variability, where the tight correlation between the time lag and the bolometric luminosity ($\tau - L$) for CLAGNs roughly follows that found in the luminous QSOs. We don't find evident differences between X-ray CLAGNs and optical CLAGNs based on their mid-IR luminosity. We suggest that the X-ray CLAGNs may be also triggered by variation of accretion rate (e.g., variable disk winds observed at a moderate inclination angle). 
 
 \end{abstract}
 
@@ -307,9 +302,9 @@ The discovery of changing-look active galactic nuclei (CLAGNs) with the rapid ch
 %% You will be asked to selected these concepts during the submission process
 %% but this old "keyword" functionality is maintained in case authors want
 %% to include these concepts in their preprints.
-\keywords{ Active galactic nuclei (16)---Seyfert galaxies (1702)---Quasars(1552)--- LINER galaxies (1703)}
+\keywords{ Active galactic nuclei (16)---Seyfert galaxies (1447)---Quasars (1319)--- LINER galaxies (925)---Reverberation mapping (2019)}
 
-
+%Active galactic nuclei (16), Seyfert galaxies (1447), Quasars (1319), LINER galaxies (925), Reverberation mapping (2019)
 
 %% From the front matter, We move on to the body of the paper.
 %% Sections are demarcated by \section and \subsection, respectively.
@@ -328,91 +323,41 @@ The discovery of changing-look active galactic nuclei (CLAGNs) with the rapid ch
 
 \section{Introduction} \label{sec:intro}
 
-Active galactic nuclei (AGNs) are compact sources of a special class of galaxies characterized by strong variability and the high luminosity of non-stellar origin. The accretion onto the central supermassive black hole (SMBH) is widely accepted as the energy source for the AGN activity. The strong broad lines  (1000-20000 $ \rm{km}\, \rm{s}^{-1}$) are another typical feature distinguished from the normal galaxies, where the sources with broad lines are called type 1 AGNs. Based on the relative intensity of the broad and narrow components of the Balmer lines, the type 1 AGNs are further classified into several subclasses \citep[e.g., type 1.5, 1.8, and 1.9, see ][]{1976MNRAS.176P..61O,1981ApJ...249..462O}. The sources observed with only narrow lines (e.g., $<$1000 $ \rm{km}\, \rm{s}^{-1}$) are called type 2 AGNs. Some type 2 AGNs are observed with broad lines in polarized light, which suggests that these sources have hidden broad lines \citep[e.g.,][]{1997Natur.385..700H}. In some low-luminosity LINERs, only low ionization emission lines are detected, where these lines are still ionized by the central point-like weak sources \citep[e.g.,][]{2008ARA&A..46..475H}. About 10 percent of AGNs show strong relativistic jets, where the jets start from the vicinity of BHs and can extend far beyond the host galaxy {\color{red}(e.g., Mpc scale, Kellermann, K. et al. 1989)}. 
+Active galactic nuclei (AGNs) are a special class of galaxies characterized by strong variability and high luminosity of non-stellar origin. The accretion onto the central supermassive black hole (SMBH) is widely accepted as the energy source for the AGN activity. The strong emission lines are another typical feature distinguished from the normal galaxies, where the sources with broad lines (1000-20000 $ \rm{km}\, \rm{s}^{-1}$) are called type 1 AGNs. Based on the relative intensity of the broad and narrow components of the Balmer lines, the type 1 AGNs are further classified into several subclasses \citep[e.g., type 1.5, 1.8, and 1.9, see ][]{1976MNRAS.176P..61O,1981ApJ...249..462O}. The sources observed with only narrow lines (e.g., $<$1000 $ \rm{km}\, \rm{s}^{-1}$) are called type 2 AGNs. The broad lines are observed in some type 2 AGNs in polarized light, which suggest that these sources have hidden broad lines \citep[e.g.,][]{1997Natur.385..700H}. In some low-luminosity LINERs, only low ionization emission lines are detected, where these lines are still ionized by the central point-like weak sources \citep[e.g.,][]{2008ARA&A..46..475H}. About 10 percent of AGNs show strong relativistic jets, where the jets start from the vicinity of BHs and can extend far beyond the host galaxy \citep[e.g., Mpc scale,][]{1989AJ.....98.1195K}. 
  
 
-
-%luminous galaxies that powered by matter accretion onto the supermassive black hole (SMBH) in the center of galaxies. Based on the brightness of nuclei and excitation of emission lines, the main subclasses of AGNs include nearby Seyfert galaxies \citep{1943ApJ....97...28S} with bright nuclei and high-excitation emission lines, low-ionization nuclear emission-line regions \citep[LINERs; e.g.,][]{2014ARA&A..52..589H}, and extremely luminous and distant quasi-stellar objects (QSOs, or quasars).  Based on the appearance or disappearance of broad emission lines, AGN are divided into two classes.  One is type 1 AGN with both broad lines ($>$ 1000 $ \rm{km}\, \rm{s}^{-1}$) and narrow lines ($<$ 1000 $ \rm{km}\, \rm{s}^{-1}$), and another is type 2 AGN with only narrow lines. The sub-classes are classified based on the strength of broad H$\alpha$ lines and broad H$\beta$ line \citep[see ][]{1976MNRAS.176P..61O,1981ApJ...249..462O}. Type 1.5/1.8/1.9 AGN has broad H$\alpha$ lines and comparable/weak/undetectable broad H$\beta$ lines.
-
-In the last several tens of years, it is found that the large diversity of observed AGN properties can be explained by a few physical parameters (e.g., inclination, jet, accretion rate), which is called AGN unification \citep[e.g.,][and references therein]{1993ARA&A..31..473A,2015ARA&A..53..365N}. The first parameter is the inclination angle of the putative dusty torus. The suppressed multi-waveband continuum and absence of broad emission lines in type 2 AGNs are caused by obscuration of the dust in the torus. The high column density as constrained from X-ray observations and the hidden broad lines in the optical polarization measurements for some type 2 AGNs support this inclination-dependent unification scheme. The second parameter is the absence or appearance of the strong collimated relativistic jets, where these jets are sometimes observed in optical or even in $\gamma$-ray bands. Even though the relativistic jets have been observed for several tens of years, the physical reason behind the radio-loud/quiet dichotomy is still an open issue. The third one is related to the possible evolution {\color{red}of the accretion disk}. The accretion rate plays a key role in the different types of AGNs. Some low-luminosity AGNs (e.g., LINERs, FR I radio galaxies, and BL Lacs) lack the broad emission lines and they do not show evident obscuration, which may be caused by absent clouds in the broad-line region (BLR) or central accretion disk does not provide enough ionization photons. For luminous AGNs (e.g., QSOs/Seyferts), the big blue bump in optical/UV bands can be well explained by an optically thick and geometrically thin accretion disk \citep[SSD;][]{1973A&A....24..337S}. The SSD may transit to a geometrically thick, advection-dominated accretion flow \citep[ADAF; e.g.,][and references therein]{2014ARA&A..52..529Y}, where most of the accretion energy is advected into SMBH . The ADAF is much hotter than the SSD, which leads to high-energy emission and can explain many typical features in low-luminosity AGNs \citep[e.g.,][]{2008ARA&A..46..475H}.  
+In the last three decades, it was found that the large diversity properties of observed AGN can be explained by a few parameters (e.g., inclination, jet, accretion rate), which is called AGN unification \citep[e.g.,][and references therein]{1993ARA&A..31..473A,2015ARA&A..53..365N}. The first parameter is inclination angle of putative dusty torus. The suppressed multi-waveband continuum and absence of broad emission lines in type 2 AGNs are caused by obscuration of the dust in the torus. The high column density as constrained from X-ray observations and the hidden broad lines in the optical polarization measurements for some type 2 AGNs support this inclination-dependent unification scheme. The second parameter is collimated relativistic radio jets, where these jets are sometimes observed in optical or even in $\gamma$-ray wavebands. Even though the relativistic jets have been observed for several tens of years, the physical reason behind the radio-loud/quiet dichotomy is still an open issue. The third parameter is accretion rate, where different types of accretion modes may exist in the different types of AGNs. For bright AGNs (e.g., QSOs/Seyferts), the big blue bump in optical/UV bands can be well explained by an optically thick and geometrically thin accretion disk \citep[SSD;][]{1973A&A....24..337S}. The SSD may transit to a geometrically thick, advection-dominated accretion flow when the accretion rate is lower than a critical value \citep[ADAF; e.g.,][for a recent review and references therein]{2014ARA&A..52..529Y}, where most of the accretion energy is advected into SMBH rather than radiated away. The ADAF is much hotter than the SSD, which leads to high-energy emission and can explain many typical features in low-luminosity AGNs \citep[LLAGNs,][]{2008ARA&A..46..475H}. Some LLAGNs (e.g., LINERs, FR I radio galaxies, and BL Lacs) lack the broad emission lines and they do not show evident obscuration, which may be caused by absent clouds in the broad-line region (BLR) or central accretion disk does not provide enough ionization photons.  
      
 
-
-
-
-%Different type of AGNs show much different continuum, which are mainly regulated by the evolution of accretion process and jet. 
-%AGN unification is proposed to explain different kinds of AGNs \citep[e.g.,][and references therein]{1993ARA&A..31..473A,2015ARA&A..53..365N}, which is described in a general picture with two parameters: the inclination to the line of sight and the luminosity of source. AGNs with higher Eddington ratio $L_\mathrm{AGN}/L_\mathrm{Edd} \ge 0.01$ (such as QSOs and Seyfert galaxies) are efficient accretors. The mechanism of energy output of bright AGNs are thought to come from matter accretion through an optically thick and geometrically thin accretion disk \citep[SSD;][]{1973A&A....24..337S}.  Low-luminosity AGNs \citep[LLAGNs;e.g.,][]{2008ARA&A..46..475H} with much lower Eddington ratio luminosity are in radiatively inefficient accretion mode, where the thin disk is  thought to be truncated in the inner regions by a geometrically thick advection-dominated accretion flow or radiatively inefficient accretion flows\citep[ADAF/RIAF; e.g.,][and references therein]{2014ARA&A..52..529Y}. 
-
-In recent years, it is found that some AGNs, the so-called ``changing-look" AGNs (CLAGNs), show type transitions within a couple of years or even several months. The term ``changing-look" is firstly used to describe the X-ray CLAGNs, which show strong variations in X-ray detected obscuration, transitions from Compton thick ({\color{red}i.e.} hydrogen equivalent column density, $N_\mathrm{H}> 10^{24}\,\mathrm{cm}^{-2}$) to Compton thin \citep[{\color{red}i.e.} $N_\mathrm{H} < 10^{22-23}\,\mathrm{cm}^{-2}$, e.g.,][]{2003MNRAS.342..422M} and vice-visa. This definition has been extended to optical CLAGNs, where broad lines appear/disappear within several years \citep[i.e. transit from type 1 to type 2 and vice-visa; e.g.,][]{2014ApJ...796..134D,2014ApJ...788...48S,2020ApJ...890L..29A,2020ApJ...901....1W}. There has been some systematic search for CLAGNs using multi-epoch optical spectra \citep[e.g.,][]{2018ApJ...862..109Y,2021MNRAS.503.2583S,2021A&A...650A..33P} and the number of CLAGNs is growing. Based on the orientation-unification AGN model, the broad lines and the torus column density will not change within such a short timescale of years or decades.
+In recent years, it is found that some AGNs, the so-called ``changing-look" AGNs (CLAGNs), show type transitions within a couple of years or even several months. The term ``changing-look" is firstly used to describe the X-ray CLAGNs, which transit from Compton thick (i.e., hydrogen column density, $N_\mathrm{H}> 10^{24}\,\mathrm{cm}^{-2}$) to Compton thin \citep[i.e., $N_\mathrm{H} < 10^{22-23}\,\mathrm{cm}^{-2}$, e.g.,][]{2003MNRAS.342..422M} and vice-visa. This definition has been extended to optical CLAGNs, where broad lines appear/disappear within several years \citep[i.e., transit from type 1 to type 2 and vice-visa, e.g.,][]{2014ApJ...796..134D,2014ApJ...788...48S,2020ApJ...890L..29A,2020ApJ...901....1W}. There has been some systematic search for CLAGNs using multi-epoch optical spectra \citep[e.g.,][]{2018ApJ...862..109Y,2021MNRAS.503.2583S,2021A&A...650A..33P} and the number of CLAGNs is growing. Based on the orientation-unification AGN model, the broad lines and the torus column density will not change within such a short timescale of years or decades.
 
  
+The physical mechanism of CLAGNs is not fully understood. One scenario is that disappearance/appearance of the broad lines and/or variations of obscuration are caused by the obscuring material moving in or out from our line of sight \citep[e.g.,][]{2013MNRAS.436.1615M,2014MNRAS.443.2862A,2015ApJ...815...55R,2018MNRAS.481.2470T,2019ApJ...887...15W}. However, this scenario is challenged by the low $N_\mathrm{H}$ during type transition \citep[e.g.,][]{2016A&A...593L...9H} and roughly unchanged polarization measurements \citep[e.g.,][]{2019sf2a.conf..509M} in many CLAGNs. The ``changing look'' of second scenario is caused by the change of accretion rate, which will lead to the change of ionization luminosity and/or appearance/disappearance of the clouds in BLR. The multi-wavelength and continuum variability in CLAGNs does support this scenario \citep[e.g.,][]{2017ApJ...846L...7S,2018ApJ...864...27S,2018MNRAS.480.3898N}. The strong intrinsic continuum variation is also found in some X-ray CLAGNs with strong $N_\mathrm{H}$ variation, which suggests that the variation of $N_\mathrm{H}$ may be also driven by the change of accretion disk \citep[e.g., disk winds;][]{2021RAA....21..199L}.
 
-% X-ray spectra transit between Compton thick (e.g., hydrogen equivalent column density, $N_\mathrm{H}$ above $\sim 10^{24}\,\mathrm{cm}^{-2}$) and Compton thin \citep[e.g., $N_\mathrm{H} \sim  10^{22-23}\,\mathrm{cm}^{-2}$; see ][]{2003MNRAS.342..422M}. Optical CLAGNs are also named since 2010s through the optical spectroscopic confirmation that the AGN type change based on the appearance/disappearance of broad-emission lines within years \citep[e.g.,][]{2014ApJ...796..134D,2014ApJ...788...48S,2020ApJ...890L..29A,2020ApJ...901....1W}, even months \citep[e.g.,][]{2019MNRAS.487.4057K,2019ApJ...883...94T}. There has been some systematic search for CLAGNs using multi-epoch optical spectra \citep[e.g.,][]{2018ApJ...862..109Y,2021MNRAS.503.2583S,2021A&A...650A..33P} and the number of CLAGNs is growing.
+In this work, we analyze the mid-IR variability, color, and Eddington ratio for a sample of both X-ray CLAGNs and optical CLAGNs based on the {\it Wide-field Infrared Survey
+Explorer} ({\it WISE}) data. We estimate the mid-IR time lags ($\tau$) for 15 bright CLAGNs using multi-epoch optical and mid-IR observations. We use these observations to understand the basic properties of the central engine and possible differences/similarities between the two types of CLAGNs.  We describe the {\it WISE} data and the CLAGN sample in \autoref{sec:sample}. The results of mid-IR variability, color, and luminosity for CLAGNs are shown in \autoref{sec:mir_var_col_lum}. We present the mid-IR dust reverberation mapping analysis and the $\tau$-$L_\mathrm{bol}$ correlation of CLAGNs in \autoref{sec:tau-L}. Conclusion and discussion are presented in \autoref{sec:dis}. Throughout this work, we adopt a flat $\Lambda-$CDM cosmological model with $H_0$=70 km s$^{-1}$ Mpc $^{-1}$, $\Omega_{m}$=0.27, and $\Omega_{\Lambda}=0.73 $.
 
-
-%In the orientation-based unified model, type 1 AGN is face-on view with broad-emission lines region (BLR) visible to observer, while type 2 AGN is edge-on viewed with BLR blocked by the putative torus surrounding the BH. Source type should keep unchanged during short timescale under this scenario. However, changing-look AGNs (CLAGNs, hereafter) with optical broad emission line or X-ray spectrum variations have been discovered in recent years. The term ``changing-look" is firstly used to describe the X-ray CLAGNs, whose X-ray spectra transit between Compton thick (e.g., hydrogen equivalent column density, $N_\mathrm{H}$ above $\sim 10^{24}\,\mathrm{cm}^{-2}$) and Compton thin \citep[e.g., $N_\mathrm{H} \sim  10^{22-23}\,\mathrm{cm}^{-2}$; see ][]{2003MNRAS.342..422M}. Optical CLAGNs are also named since 2010s through the optical spectroscopic confirmation that the AGN type change based on the appearance/disappearance of broad-emission lines within years \citep[e.g.,][]{2014ApJ...796..134D,2014ApJ...788...48S,2020ApJ...890L..29A,2020ApJ...901....1W}, even months \citep[e.g.,][]{2019MNRAS.487.4057K,2019ApJ...883...94T}. There has been some systematic search for CLAGNs using multi-epoch optical spectra \citep[e.g.,][]{2018ApJ...862..109Y,2021MNRAS.503.2583S,2021A&A...650A..33P} and the number of CLAGNs is growing.
-
-
-The type transition in CLAGNs is still not fully understood. One scenario is that disappearance/appearance of the broad lines and/or variable obscuration are caused by the obscuring material moving in or out from our line of sight\citep[e.g.,][]{2013MNRAS.436.1615M,2014MNRAS.443.2862A,2015ApJ...815...55R,2018MNRAS.481.2470T,2019ApJ...887...15W}. However, this scenario is challenged by the low $N_\mathrm{H}$ in many CLAGNs during state transition \citep[e.g.,][]{2016A&A...593L...9H} and roughly unchanged polarization measurements \citep[e.g.,][]{2019sf2a.conf..509M}. The second scenario for ``changing look'' is due to a {\color{red}sudden} change in mass accretion rate and ionizing flux, which will lead to the change of broad emission lines. Such a change could either be {\color{red}the gradual variation of accretion rate or AGNs experiencing a stochastic extreme change in accretion (references, Wang Jianmin binary BH , Czerny disk instability model ...).} The multi-waveband continuum variability in CLAGNs does support this scenario \citep[e.g.,][]{2017ApJ...846L...7S,2018ApJ...864...27S,2018MNRAS.480.3898N}. The strong intrinsic continuum variation is also found in some X-ray CLAGNs with strong $N_\mathrm{H}$ variation, which suggests that the variation of $N_\mathrm{H}$ may be also driven by the change of accretion disk \citep[e.g., disk winds;][]{2021RAA....21..199L}.
-
-
-
-%The mechanism of the ``changing-look" is still unclear. One scenario is that broad lines change with variable obscuration, such as obscuring material moving in or out from our line of sight\citep[e.g.,][]{2013MNRAS.436.1615M,2014MNRAS.443.2862A,2015ApJ...815...55R,2018MNRAS.481.2470T,2019ApJ...887...15W} and the intrinsic emission is roughly unchanged. Only a small portion of sources might be explained in this scenario. \citet{2017ApJ...846L...7S} reports the significant mid-infrared (MIR) variability with the type transition of several optical CLAGNs. The variable obscuration scenario is ruled out since the crossing time for obscuration is much longer than the MIR variability timescale. Another promising scenario is that the AGN type evolves with the variation of intrinsic radiation such as accretion rate change \citep[e.g.,][]{1984MNRAS.211P..33P,2014MNRAS.438.3340E}, which is supported by low $N_\mathrm{H}$\citep[e.g.,][]{2016A&A...593L...9H} and almost unchanged polarization degree measurements \citep[e.g.,][]{2019sf2a.conf..509M}. There is also consistent variation of AGN types with luminosity in X-ray \citep[e.g.,][]{2021MNRAS.508..144G}, and MIR \citep[e.g.,][]{2017ApJ...846L...7S,2018ApJ...864...27S} band. Multi-wavelength variability is expected in CLAGNs and search for CLAGN candidates based on infrared \citep[][]{2020ApJ...889...46S} or hard X-ray \citep[][]{2021AIPC.2319d0007H} variability has been conducted. Changing-look quasars \citep[e.g.,][]{2015ApJ...800..144L,2021PASJ...73..122N}, changing-look LINERs \citep{2019ApJ...883...31F}, and even a changing-look Blazar \citep{2021ApJ...913..146M} represent the extreme variability and rapid type transition over an wide luminosity range of AGNs. CLAGNs with luminosity variation crossing $\sim1$ per cent Eddington ratio might be in the transitional accretion state between quiescent LLAGNs and active QSOs, which might be tested through statistical study. Besides, recent studies show that changing-look Seyferts galaxies hosts primarily reside in the green valley between spiral-like star-forming galaxies and dead elliptical galaxies \citep{2021ApJ...907L..21D,2021ApJ...915...63L}, whereas changing-look quasars hosts reside in the star-forming main sequence \citep{2021ApJ...915...63L}. The host galaxies of CLAGNs might also experience co-evolution through episodic bursts of accretion activity with changing-look LINERs, changing-look Seyferts, and changing-look quasars in different accretion mode. CLAGNs with large amplitude variation of luminosity provide us opportunity to study the possible transition of accretion mode in individual sources. The X-ray spectra evolution with a `q'-shape of the hardness-intensity diagram found in CLAGNs \citep[e.g., NGC 1566;][]{2021MNRAS.507..687J} are similar to the state transitions in black hole X-ray binaries. The correlation between hardness ratio or the photon index ($\Gamma$) from X-ray spectrum and X-ray luminosity \citep[e.g., Mrk 1018;][]{2018MNRAS.480.3898N,2021MNRAS.506.4188L} and the bolometric luminosity distribution \citep[e.g., NGC 2992;][]{2021MNRAS.508..144G} show significant discrepancy when optical CLAGNs are type 1 and type 2 with a critical Eddington ratio $\sim 1$ per cent. The evolution of BLR might be regulated by the transition of accretion mode. Besides, there is also strong X-ray spectral evolution with variable $N_\mathrm{H}$ \citep[e.g., NGC 1365;][]{2021RAA....21..199L} in X-ray CLAGNs. 
-
-
-
-
-
-
-%Whether the optical type change and X-ray spectral evolution in CLAGNs are regulated by the same process is still an issue. The emission and color variability from MIR band are good tracers for CLAGNs with intrinsic variations \citep[e.g.,][]{2018ApJ...862..109Y}. The MIR variability is driven by the intrinsic variation such as accretion rate change in the reprocessing scenario. When the optical/UV emission from accretion disk changes, the reprocessed IR emission would respond to the variation as the variation signal travels to the torus at the speed of light. The MIR light curves of several optical CLAGNs shifted backward a few of years match well with optical variation pattern, showing evidence of the dust echo response to the intrinsic accretion variation \citep{2017ApJ...846L...7S}. Dust reverberation that measures the time lag between MIR band and optical or hard X-ray band is an effective method to estimate the size of torus. This method has been extensively applied in quasars \citep[e.g.,][]{2019ApJ...886...33L}, Seyfert 1s \citep[e.g.,][]{2014ApJ...788..159K,2019ApJ...886...33L,2021MNRAS.501.3905M} and type 2 AGN \citep[e.g.,][]{2020MNRAS.495.2921N} and some CLAGNs are included \citep[e.g.,][]{2014ApJ...788..159K,2014ApJ...788...48S,2019ApJ...886...33L,2020MNRAS.491.4615K,2021ApJ...912..126L}. 
-
-
-In this work, we study the variability, color, Eddington ratio, and dust echo for a sample of both X-ray CLAGNs and optical CLAGNs based on {\it WISE} observations. These results can shed light on the basic properties of the central engine and possible differences/similarities between the two kinds of CLAGNs. We describe the CLAGN sample and MIR {\it WISE} data in \autoref{sec:sample}. The results of MIR variability, color, and luminosity for CLAGNs are shown in \autoref{sec:mir_var_col_lum}. We present the $\tau$-$L_\mathrm{bol}$ correlation of CLAGNs in \autoref{sec:tau-L}. Conclusion and discussion are presented in \autoref{sec:dis}. Throughout this work, we adopt a flat $\Lambda-$CDM cosmological model with $H_0$=70 km s$^{-1}$ Mpc $^{-1}$, $\Omega_{m}$=0.27, and $\Omega_{\Lambda}=0.73 $.
-
-
-%In this work, we systematically study the MIR band variability of a CLAGN sample and compare them with a sample of LLAGNs and QSOs. We estimate the dust reverberation time lag ($\tau$) between optical V band and MIR $W$1 band of several CLAGNs using multi-wavelength observations to study the correlation between dust reverberation time lag ($\tau$) and bolometric luminosity ($L_\mathrm{bol}$). This paper is organized as follows. We describe the CLAGN sample and MIR {\it WISE} data in \autoref{sec:sample}. The results of MIR variability, color, and luminosity for CLAGNs are shown in \autoref{sec:mir_var_col_lum}. We present the $\tau$-$L_\mathrm{bol}$ correlation of CLAGNs in  \autoref{sec:tau-L}. Conclusion and discussion are presented in \autoref{sec:dis}. Throughout this work, we adopt a flat $\Lambda-$CDM cosmological model with $H_0$=70 km s$^{-1}$ Mpc $^{-1}$, $\Omega_{m}$=0.27, and $\Omega_{\Lambda}=0.73 $.
-
-
-
-\section{CLAGN Sample and {\it WISE} Data} \label{sec:sample}
+\section{{\it WISE} Data and CLAGN Sample} \label{sec:sample}
 %\subsection{CLAGN sample}
-To explore the MIR properties of CLAGNs, we collect the reported CLAGNs from the literature. In total, we find 141 sources, which include 128 optical CLAGNs with disappearance/appearance of broad lines, 13 X-ray CLAGNs with the variation of $N_\mathrm{H}$. It should be noted that around 6 CLAGNs show both variations of broad emission lines and X-ray absorption (e.g., ESO 362-G18, IRAS 23226-3843, NGC 2992, NGC 4151, NGC 4395, and NGC 7582). We select 119 CLAGNs with the BH mass measurements from literature, which are estimated based on kinematics method \citep[e.g.,][]{2003MNRAS.345.1057M}, reverberation mapping (RM) \citep[e.g.,][]{2011MNRAS.410.1877S,2017ApJ...840...97F}, correlation between $M_\mathrm{BH}$ and bulge luminosity \citep[$L_\mathrm{bulge}$, e.g.,][]{2006AJ....131.1236D} and correlation between $M_\mathrm{BH}$ and the velocity dispersion $\sigma$ of the host galaxy \citep{2002ApJ...574..740T}. 
-
-
-%We collect over one hundred of CLAGNs from literature. 13 of them are X-ray CLAGNs with $N_\mathrm{H}$ variations from X-ray spectrum \citep[e.g.,][]{2003MNRAS.342..422M,2005MNRAS.356..295G,2012MNRAS.421.1803M,2013MNRAS.428.2516B,2016ApJ...820....5R,2020MNRAS.499.5396J,2021MNRAS.507..687J}. The others are optical CLAGNs with optical type change between type 1 (type 1--type 1.8) and type 2 (type 1.9--type 2). Some sources (e.g., ESO 362-G18, IRAS 23226-3843, NGC 2992, NGC 4151, NGC 4395, and NGC 7582) with both optical type change and variable X-ray spectrum observed during different periods \citep[e.g.,][]{2003MNRAS.342..422M,2011MNRAS.417.2571N,2014MNRAS.443.2862A,2015ApJ...815...55R,2017A&A...603A..50B,2020A&A...638A..91K} are classified into optical CLAGNs. Around 119 of CLAGNs have central BH mass ($M_\mathrm{BH}$) measurements reported in literature. The BH mass measurements are based on kinematics method \citep[e.g.,][]{2003MNRAS.345.1057M}, reverberation mapping (RM) method \citep[e.g.,][]{2011MNRAS.410.1877S,2017ApJ...840...97F}, correlation between $M_\mathrm{BH}$ and bulge lumoninosity \citep[$L_\mathrm{bulge}$, e.g.,][]{2006AJ....131.1236D} and correlation between $M_\mathrm{BH}$ and the velocity dispersion $\sigma$ of the host galaxy \citep{2002ApJ...574..740T}.
-
-
-%\subsection{{\it WISE} Data}
-
-The Wide-field Infrared Survey Explorer \citep[\textit{WISE};][]{2010AJ....140.1868W} imaged the full sky approximately six months in four mid-IR bands, centered at 3.4, 4.6, 12, and 22 $\mu$m (referred to as W1, W2, W3, and W4, respectively). The {\it WISE} survey provides an ideal opportunity to explore the infrared properties of CLAGNs. The {\it WISE} has surveyed the full sky {\color{red}1.2 times} in the above four bands from 2010 January to September and cryogen used to cool the W3 and W4 instruments were exhausted. Then it was placed in hibernation on 2011 February 1. On 2013 October 3, it was reactivated (named as \textit{NEOWISE}) with only W1 and W2 \citep{2014ApJ...792...30M}. All data obtained by {\it WISE} from 2010 and 2011 have been made public in the \textit{AllWISE} Data Release. We use the \textit{AllWISE} multi-epoch photometry table and \textit{NEOWISE} single exposure (L1b) source table data retrieved from the NASA/IPAC Infrared Science Archive \footnote{\url{https://irsa.ipac.caltech.edu/Missions/wise.html}}. The \textit{AllWISE} and \textit{NEOWISE} data are screened to exclude the possible bad photometric measurements according to the following criteria:\\
+The \textit{WISE} imaged the full sky approximately every six months in four mid-IR bands, centered at 3.4, 4.6, 12, and 22 $\mu$m \citep[referred to as $W1$, $W2$, $W3$, and $W4$, respectively,][]{2010AJ....140.1868W}, which provides an ideal opportunity to explore the infrared properties of CLAGNs. The {\it WISE} surveyed the full sky 1.2 times in the above four bands from 2010 January to September and cryogen for cooling the $W3$ and $W4$ instruments were exhausted. Then it was placed in hibernation on 2011 February 1. On 2013 October 3, it was reactivated (named as \textit{NEOWISE}) with only $W1$ and $W2$ \citep{2014ApJ...792...30M}. We use the \textit{AllWISE} multi-epoch photometry table and \textit{NEOWISE} single exposure (L1b) source table data retrieved from the NASA/IPAC Infrared Science Archive \footnote{\url{https://irsa.ipac.caltech.edu/Missions/wise.html}}. The \textit{AllWISE} and \textit{NEOWISE} data are screened to exclude the possible bad photometric measurements according to the following criteria:\\
 (1) Detection from good-quality frame sets\footnote{\url{http://wise2.ipac.caltech.edu/docs/release/neowise/expsup/sec2_3.html}}, with {frame quality score \texttt{qual\_frame}}$>$0, frame image quality score {\texttt{qi\_fact}}$>$0,
 South Atlantic Anomaly separation {\texttt{saa\_sep}}$>0$, and Moon masking
 flag {\texttt{moon\_masked}}=0.\\ 
-(2) $W1$ $<$15 and $W2$ $<$13 mag, which approximately correspond to signal-noise-ratio SNR=10.\\
-(3) The number of point spread function (PSF) components used in profile fit (\texttt{nb}$<$3), frames are unaffected (\texttt{cc\textunderscore flags}=`0000') and are not actively de-blended \citep[na$=$0; see also][]{2019MNRAS.483.2362R}.
+(2) $W1$ $<$15 mag and $W2$ $<$13 mag, which approximately correspond to signal-noise-ratio SNR=10.\\
+(3) The number of point-spread-function (PSF) components used in profile fitting (\texttt{nb}$<$3), frames are unaffected (\texttt{cc\textunderscore flags}=`0000') and are not actively de-blended \citep[na$=$0; see also][]{2019MNRAS.483.2362R}.
 
-\textit{NEOWISE} has covered much more and longer MIR observations than \textit{AllWISE}, sources with more than 20 valid data points of \textit{NEOWISE} are considered to increase the statistical significance of the variability. Our final sample includes 70 sources. The information of the CLAGN sample is listed in \autoref{source}, where the source name, type, redshift, and BH mass are included. 
+To explore the mid-IR variability properties of CLAGNs, we collect the reported CLAGNs from the literature. To increase the statistical significance on the variability, the sources with at least 20 valid \textit{WISE} data points are considered. Our sample includes 70 sources, which include 57 optical CLAGNs with the disappearance/appearance of broad lines and 13 X-ray CLAGNs with the variation of $N_\mathrm{H}$. It should be noted that 5 CLAGNs show variations of both broad emission lines and X-ray absorption column density (e.g., ESO 362-G18, NGC 2992, NGC 4151, NGC 4395, and NGC 7582). We adopt the BH mass measurements of these CLAGNs from the literature, which are estimated based on kinematics method \citep[e.g.,][]{2003MNRAS.345.1057M}, reverberation mapping (RM) \citep[e.g.,][]{2011MNRAS.410.1877S,2017ApJ...840...97F}, bulge luminosity \citep[$L_\mathrm{bulge}$, e.g.,][]{2006AJ....131.1236D} and velocity dispersion $\sigma_{*}$ of the host galaxy \citep{2002ApJ...574..740T}. The information of the CLAGN sample is listed in \autoref{source}, where the source name, redshift, the type of CLAGNs, BH mass, infrared magnitude, variability, and color are presented.
+
 
 \input{source_table}
 
- 
-%In order to investigate the MIR variability and the intrinsic physics of CLAGNs, we use MIR data from \textit{Wide-field Infrared Survey Explorer}, which is launched on 2009, December 14 and performed all-sky survey in four bands, $W1$, $W2$, $W3$, and $W4$ at 3.4, 4.6, 12, and 22 $\mu$m until 2011\citep[\textit{WISE};][]{2010AJ....140.1868W} and the newly released Near-Earth Object WISE Reactivation mission\citep[\textit{NEOWISE};][]{2014ApJ...792...30M} which starts in 2013 with only $W1$ and $W2$ working. We use the \textit{AllWISE} multi-epoch photometry table and \textit{NEOWISE} single exposure (L1b) source table data retrieved from the NASA/IPAC Infrared Science Archive \footnote{\url{https://irsa.ipac.caltech.edu/Missions/wise.html}}. The \textit{AllWISE} and \textit{NEOWISE} data are screened to exclude the possible bad photometric measurements according to the following criteria:\\(1) Detection from good-quality frame sets\footnote{\url{http://wise2.ipac.caltech.edu/docs/release/neowise/expsup/sec2_3.html}}, with {frame quality score \texttt{qual\_frame}}$>$0, frame image quality score {\texttt{qi\_fact}}$>$0, South Atlantic Anomaly separation {\texttt{saa\_sep}}$>0$, and Moon masking flag {\texttt{moon\_masked}}=0.\\ (2) $W1$ $<$15 and $W2$ $<$13 mag, which approximately correspond to signal-noise-ratio SNR=10.\\ (3) The number of point spread function (PSF) components used in profile fit (\texttt{nb}$<$3) and frames are unaffected (\texttt{cc\textunderscore flags}=`0000') and are not actively de-blended \citep[na$=$0; see also][]{2019MNRAS.483.2362R}.
-
-
-%w1rchi2<5,w2rchi2<5
-%https://wise2.ipac.caltech.edu/docs/release/neowise/expsup/sec2_3.html
-
-
-\section{MIR Eddington ratio, variability and color}\label{sec:mir_var_col_lum}
-
-%Since \textit{NEOWISE} has covered much more and longer MIR observations than \textit{AllWISE}, only 70 sources with data points of \textit{NEOWISE} more than 20 are considered to make sure statistical significance. 
-
-%We calculate the MIR variability for selected CLAGNs based on the {\it WISE} magnitude for each visit per half year. 
-
-We calculate the MIR luminosity for CLAGNs derived from the averaged magnitude, and the Eddington ratio of MIR luminosity is presented in \autoref{fig:distribution_ledd}. For comparison, we also include the distribution for a sample of 49 LLAGNs from \citet{2009MNRAS.399..349G} and 732 luminous QSOs from \citet{2007ApJ...667..131G}, where the sources with at least 20 data points of \textit{NEOWISE} are considered. The average log$L_\mathrm{W1}/L_\mathrm{Edd}$\, are $-2.33$, $-3.46$, and $-1.48$ for CLAGNs, LLAGNs and QSOs respectively. It can be found that CLAGNs have a moderate mean Eddington ratio of MIR luminosity compared to LLAGNs and QSOs. The X-ray CLAGNs show a little bit higher but roughly similar Eddington ratio with optical CLAGNs, where average log$L_\mathrm{W1}/L_\mathrm{Edd}$\ are $-2.36$ and $-2.18$ respectively.     
+\section{Mid-IR Eddington ratio, variability and color}\label{sec:mir_var_col_lum}
+We calculate the mid-IR luminosity for CLAGNs from the \textit{WISE} magnitude, and the distribution of the mid-IR Eddington ratio is presented in the top panel of \autoref{fig:var_ledd_hist}. For comparison, we also include the distributions for a sample of 49 LLAGNs from \citet{2009MNRAS.399..349G} and 732 luminous QSOs from \citet{2007ApJ...667..131G}, where the sources with at least 20 valid \textit{WISE} data points are considered. The average log$L_\mathrm{W1}/L_\mathrm{Edd}$\, are $-2.33$, $-3.46$, and $-1.48$ for CLAGNs, LLAGNs, and QSOs, respectively. It can be found that CLAGNs have a moderate mean Eddington ratio of mid-IR luminosity compared to those of LLAGNs and QSOs. The X-ray CLAGNs show a little bit higher but roughly similar Eddington ratio with optical CLAGNs, where average ratios of log$L_\mathrm{W1}/L_\mathrm{Edd}$\ are $-2.36$ and $-2.18$ respectively (see Table 2).     
  
 
-We calculate the maximum variation magnitude $\Delta\,W1$ and $\Delta\,W2$ for each selected CLAGN (see \autoref{source}). We find that the majority (50/70 and 56/70) of CLAGNs change more than $0.3$ mag for $\Delta\,W1$ and $\Delta\,W2$, of which 6 X-ray CLAGNs (NGC 4051, NGC 4388, NGC 4507, NGC 4939, NGC 7469, and PG 1535+547) have $\Delta\,W1$ more than $0.3$ mag. The {\it WISE} light curves for those extreme variable X-ray CLAGNs are shown in \autoref{fig:X-CLAGN-lc}. We further calculate the intrinsic variability based on the standard deviation about the mean offset for each CLAGN ($\sigma_m$) following \citet{2019MNRAS.483.2362R} \citep[see also][etc]{2007AJ....134.2236S,2012ApJ...759L..31J}.
+To estimate the mid-IR variability amplitude of CLAGNs, we firstly calculate the maximum variation magnitude $\Delta\,W1$ and $\Delta\,W2$ for each selected CLAGN. We find that the majority of CLAGNs change more than $0.3$ mag for $\Delta\,W1$ (50/70) and $\Delta\,W2$ (56/70), which include 6 X-ray CLAGNs (NGC 4051, NGC 4388, NGC 4507, NGC 4939, NGC 7469, and PG 1535+547). 
+
+We further calculate the intrinsic variability based on the standard deviation about the mean offset for each CLAGN ($\sigma_m$) following \citet{2019MNRAS.483.2362R} \citep[see also][etc]{2007AJ....134.2236S,2012ApJ...759L..31J}.
 The magnitude standard deviation $\Sigma$ is given as
 \begin{equation}
 \Sigma=\sqrt{\frac{1}{n-1}\sum_{i=1}^{N}(m_i - <m>)^2},
@@ -427,48 +372,15 @@ The amplitude of variability $\sigma_m$ is
 \]	               
 where the error $\epsilon$ is calculated from the individual errors as
 \begin{equation}
-\epsilon^2=\frac{1}{N}\sum_{i=i}^{N}{\epsilon_{i}^{2} + \epsilon_{s}^2}. 
+\epsilon^2=\frac{1}{N}\sum_{i=i}^{N}{\epsilon_{i}^{2} + \epsilon_{s}^2}, 
 \end{equation}
-Here $\epsilon_{i}$ is the measurement uncertainty of $i$-th point and $\epsilon_{s}$ is the systematic uncertainty. The systematic uncertainties for $W$1 and $W$2 are 0.024 mag and 0.028 mag \citep{2011ApJ...735..112J}, respectively. We find that the majority (41/70 and 44/70) of CLAGNs shows strong MIR variability with $\sigma_{m W1}$ and $\sigma_{m W2}$ greater than 10 per cent, and 4 of them are X-ray CLAGNs (NGC 4051, NGC 4388, NGC 4939, and NGC 7469). In \autoref{fig:var_ledd_hist}, we present the distribution of the variability {\color{red}and the correlation between the variability and the MIR Eddington ratio}. It can be found that the MIR variability is stronger in CLAGNs compared to those of both LLAGNs and QSOs, where average values of $\sigma_{m W1}$ are 0.14, 0.083, and 0.088 for CLAGNs, LLAGNs, and QSOs, respectively.  
+where $\epsilon_{i}$ is the measurement uncertainty of $i$-th point and $\epsilon_{s}$ is the systematic uncertainty. The systematic uncertainties for $W1$ and $W2$ are 0.024 mag and 0.028 mag \citep{2011ApJ...735..112J}, respectively. We find that the majority of CLAGNs show strong mid-IR variability with $\sigma_{m \rm{W1}}$ (41/70)  and $\sigma_{m \rm{W2}}$ (44/70) greater than 0.1 mag, and 4 of them are X-ray CLAGNs (NGC 4051, NGC 4388, NGC 4939, and NGC 7469). In \autoref{fig:var_ledd_hist}, we present the correlation between the variability and the mid-IR Eddington ratio and their distributions. It can be found that the average mid-IR variability is almost two times stronger in CLAGNs than that in both LLAGNs and QSOs, where average values of $\sigma_{m \rm{W1}}$ are 0.14, 0.08, and 0.09 for CLAGNs, LLAGNs, and QSOs, respectively.  
 
 
-In \autoref{fig:color_ledd}, we present the color distribution of $W1$-$W2$ {\color{red} and the correlation between the color and the MIR Eddington ratio}. The color $W1$-$W2$ varies from 0 to around 1.5 for CLAGNs with an average value of 0.65, while the average values are 0.08 and 0.83 for LLAGNs and QSOs respectively. The sources with higher Eddington ratios normally have higher values of $W1$-$W2$. {\color{red}The MIR variability, mean color, and MIR Eddington ratio for LLAGNs, CLAGNs, and QSOs samples are listed in \autoref{table_MIR_var_cor_lum}.}
+We calculate the average color $<W1-W2>$ of CLAGNs and also the sample (LLAGNs and QSOs) for comparison. We present the color distribution of $W1$-$W2$ and the correlation between the color and the mid-IR luminosity Eddington ratio in \autoref{fig:color_ledd}. The sources with higher Eddington ratios normally have higher values of $W1$-$W2$. The color $W1$-$W2$ varies from 0 to around 1.4 for CLAGNs with an average value of 0.65, while the average values are 0.08 and 0.83 for LLAGNs and QSOs respectively. The color of brighter/fainter CLAGNs is similar to the QSOs/LLAGNs, respectively (see \autoref{fig:color_ledd}). 
+%The $W2$ band shares similar properties with the $W1$ band, and the results are listed in \autoref{table_MIR_var_cor_lum}. 
 
 
-%The MIR variability of optical CLAGNs are significant higher than that of X-ray CLAGNs, LLAGNs and QSOs. We plot the correlation between mean MIR color ($W1$-$W2$) and mean $L_\mathrm{W1}/L_\mathrm{Edd}$\, and the distribution of mean $W1$-$W2$ in \autoref{fig:color_ledd}. The distribution of Eddington-scaled $W$1 luminosity ($L_\mathrm{W1}/L_\mathrm{Edd}$) from the re-binned $W$1 data is shown in \autoref{fig:distribution_ledd}.  The mean log$L_\mathrm{W1}/L_\mathrm{Edd}$\, of $-2.33$ for CLAGNs corresponds to $\sim 0.47$ per cent Eddington scaled $W$1 luminosity. Optical CLAGNs show significant higher MIR variability, slightly lower Eddington luminosity ratio, and lower $W1$-$W2$ than X-ray CLAGNs. The MIR variability, mean color, and mean luminosity for LLAGNs, CLAGNs, and QSOs samples are presented in \autoref{table_MIR_var_cor_lum}. %The source information of CLAGNs is summarized in \autoref{source}.    
-
-%where the MIR luminosity is derived from AB magnitude for $W1$ (\texttt{w1mpro} and \texttt{w1mpro\_ep}) and $W2$ (\texttt{w2mpro} and \texttt{w2mpro\_ep}) converted from Vega magnitude through $m_{\rm AB} = m_{\rm Vega} + \Delta m$, where $\Delta m$ are 2.699 and 3.339 for $W1$ and $W2$ bands, respectively
-\begin{figure}
-\centering
-	% To include a figure from a file named example.*
-	% Allowable file formats are eps or ps if compiling using latex
-	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=0.45\textwidth]{pic/WISE_LW1_Ledd_hist_rebin_OX.png}
-    \caption{Distribution of the Eddington-scaled W1 band luminosity re-binned in each visit for LLAGNs\citep{2009MNRAS.399..349G}, CLAGNs and QSOs \citep{2007ApJ...667..131G}. }
-    \label{fig:distribution_ledd}
-\end{figure}
-
-\begin{figure}
-\centering
-	% To include a figure from a file named example.*
-	% Allowable file formats are eps or ps if compiling using latex
-	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=0.6\textwidth]{pic/wisename_varX.png}
-    \caption{{\it WISE} averaged light curves of highly variable X-ray CLAGNs with $\Delta\,W1$ more than $0.3$ mag. The errors are calculated by error propagation method. }
-    \label{fig:X-CLAGN-lc}
-\end{figure}
-
-
-
-
-
-
-%We present the correlation between MIR $W$1 band variability $\sigma_{m W1}$ and mean Eddington scaled $W$1 luminosity $L_\mathrm{W1}/L_\mathrm{Edd}$\, and the distribution of $\sigma_{m W1}$ in \autoref{fig:var_ledd_hist}. The MIR luminosity is estimated from AB magnitude for $W1$ (\texttt{w1mpro} and \texttt{w1mpro\_ep}) and $W2$ (\texttt{w2mpro} and \texttt{w2mpro\_ep}) converted from Vega magnitude through $m_{\rm AB} = m_{\rm Vega} + \Delta m$, where $\Delta m$ are 2.699 and 3.339 for $W1$ and $W2$ bands, respectively. For comparison, we also plot a sample of quiescent LLAGNs from \citet{2009MNRAS.399..349G} with several sources which are classified as CLAGNs excluded and luminous QSOs from \citet{2007ApJ...667..131G}. 49 LLAGNs and 762 QSOs with at least 10 data points of \textit{NEOWISE} are included. The MIR variability of optical CLAGNs are significant higher than that of X-ray CLAGNs, LLAGNs and QSOs. We plot the correlation between mean MIR color ($W1$-$W2$) and mean $L_\mathrm{W1}/L_\mathrm{Edd}$\, and the distribution of mean $W1$-$W2$ in \autoref{fig:color_ledd}. The distribution of Eddington-scaled $W$1 luminosity ($L_\mathrm{W1}/L_\mathrm{Edd}$) from the re-binned $W$1 data is shown in \autoref{fig:distribution_ledd}.  The mean log$L_\mathrm{W1}/L_\mathrm{Edd}$\, of $-2.33$ for CLAGNs corresponds to $\sim 0.47$ per cent Eddington scaled $W$1 luminosity. Optical CLAGNs show significant higher MIR variability, slightly lower Eddington luminosity ratio, and lower $W1$-$W2$ than X-ray CLAGNs. The MIR variability, mean color, and mean luminosity for LLAGNs, CLAGNs, and QSOs samples are presented in \autoref{table_MIR_var_cor_lum}. The source information of CLAGNs is summarized in \autoref{source}. 
-
-
-%The maximum variation magnitude $\Delta\,W1$ and $\Delta\,W2$ are estimated from the averaged light curve combining \textit{AllWISE} and \textit{NEOWISE} data. We find that the majority (59/70) of CLAGNs change more than $0.3$ mag for $\Delta\,W1$. And 6 of them are X-ray CLAGNs (NGC 4051, NGC 4388, NGC 4507, NGC 4939, NGC 7469, and PG 1535+547). The {\it WISE} light curves for those extreme variable sources are shown in \autoref{fig:X-CLAGN-lc}.  
-
-%We average the {\it WISE} magnitude for each visit per half year. The errors are calculated by error propagation method.  The maximum variation magnitude $\Delta\,W1$ and $\Delta\,W2$ are estimated from the averaged light curve combining \textit{AllWISE} and \textit{NEOWISE} data. We find that the majority (59/70) of CLAGNs change more than $0.3$ mag for $\Delta\,W1$. And 6 of them are X-ray CLAGNs (NGC 4051, NGC 4388, NGC 4507, NGC 4939, NGC 7469, and PG 1535+547). The {\it WISE} light curves for those extreme variable sources are shown in \autoref{fig:X-CLAGN-lc}.  
 
 
 \begin{figure}
@@ -476,8 +388,8 @@ In \autoref{fig:color_ledd}, we present the color distribution of $W1$-$W2$ {\co
 	% To include a figure from a file named example.*
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=0.45\textwidth]{WISE_var_LW1_Ledd_hist.png}
-    \caption{Distribution of the variability of W1 band and its correlation with the mean Eddington-scaled W1 band luminosity for LLAGNs \citep{2009MNRAS.399..349G}, CLAGNs and QSOs \citep{2007ApJ...667..131G}. }
+	\includegraphics[width=0.5\textwidth]{pic/WISE_var_LW1_Ledd_hist.png}
+    \caption{The correlation between the variability of $W1$ band and the mean Eddington-scaled $W1$ band luminosity for LLAGNs \citep{2009MNRAS.399..349G}, CLAGNs, and QSOs \citep{2007ApJ...667..131G} and their distributions. }
     \label{fig:var_ledd_hist}
 \end{figure}
 
@@ -487,13 +399,13 @@ In \autoref{fig:color_ledd}, we present the color distribution of $W1$-$W2$ {\co
 	% To include a figure from a file named example.*
 	% Allowable file formats are eps or ps if compiling using latex
 	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=0.45\textwidth]{pic/WISE_W1-W2_LW1_Ledd_hist.png}
-    \caption{Distribution of the mean $W1-W2$ color and its correlation with the mean Eddington-scaled W1 band luminosity for LLAGNs\citep{2009MNRAS.399..349G}, CLAGNs and QSOs \citep{2007ApJ...667..131G}. }
+	\includegraphics[width=0.5\textwidth]{pic/WISE_W1-W2_LW1_Ledd_hist.png}
+    \caption{Distribution of the color for $W1-W2$ and its correlation with the Eddington-scaled $W1$ band luminosity for LLAGNs\citep{2009MNRAS.399..349G}, CLAGNs, and QSOs \citep{2007ApJ...667..131G}. }
     \label{fig:color_ledd}
 \end{figure}
 
 \begin{table}
- \caption{MIR variability, color, and Eddingtonr ratio for LLAGNs, CLAGNs, and QSOs.
+ \caption{Mid-IR variability, color, and Eddington ratio for LLAGNs, CLAGNs, and QSOs.
 }
  \label{table_MIR_var_cor_lum}
  \begin{center}
@@ -501,88 +413,143 @@ In \autoref{fig:color_ledd}, we present the color distribution of $W1$-$W2$ {\co
  \hline\hline
 Sample             & LLAGN &   \multicolumn{3}{c}{CLAGN}        & QSO  \\ 
                    &        &   O & X   & All-CLAGN         &       \\ \hline
-$\sigma_{m W1}$    &  0.083      & 0.153    &  0.088  &   0.140   &   0.088  \\ 
-$\sigma_{m W2}$    &  0.065      &   0.166 &  0.083   &    0.150  &   0.080    \\ 
+$<\sigma_{m \mathrm{W1}}>$    &  0.08      & 0.15    &  0.09  &   0.14   &   0.09  \\ 
+$<\sigma_{m \mathrm{W2}}>$    &  0.07      &   0.17 &  0.08   &    0.15  &   0.08    \\ 
 $<W1-W2>$          &   0.08      &  0.61   & 0.84      &    0.65    &   0.83   \\ 
 $<\mathrm{log} L_\mathrm{W1}/L_\mathrm{bol}>$ & -3.46  &  -2.36  &  -2.18   &  -2.33   &  -1.48\\ 
-$<\mathrm{log} L_\mathrm{W2}/L_\mathrm{bol}>$ & -3.81  &   -2.5   &  -2.23   &  -2.45   &   -1.53  \\ 
+$<\mathrm{log} L_\mathrm{W2}/L_\mathrm{bol}>$ & -3.81  &   -2.5   &  -2.23   &  -2.45   &   -1.53  \\  
 \hline\hline
 \end{tabular}
 \end{center}
 \end{table}
 
 
-
 \section{Dust reverberation mapping in CLAGNs}\label{sec:tau-L}
-The continued observations of {\it WISE}, combined with several ground-based optical transient surveys (e.g., ASAS-SN, PTF, etc.) and space-telescope observations (e.g., \swift\,), offer a good opportunity to explore the possible dust structures in these CLAGNs. We adopt the V band data from the ASAS-SN \citep[All-sky Automated Survey for Supernovae,][]{2014ApJ...788...48S,2017PASP..129j4502K,2019MNRAS.485..961J} and \uvot\, and MIR $W1$ band data from {\it WISE} to estimate the dust echo time lag ($\tau_{W1}$) for {\color{red}CLAGNs with strong MIR variations and good optical-band monitoring}. We use the interpolation cross-correlation function \citep[ICCF;][]{1998PASP..110..660P,2018ascl.soft05032S} in a range of 0--400 days for the first attempt to estimate the dust echo time lag ($\tau$) and then further limited the range according to the posterior of $\tau$. The interpolation time steps of 5 days are applied to both optical V band and $W1$ band light curves. The flux randomization and random subset selection methods are employed with 50000 realizations in the Monte Carlo simulation to estimate the centroid time lag and the uncertainties\footnote{The code \texttt{pyCCF} is available in \url{http://ascl.net/code/v/1868}}. We also use {\sc javelin} algorithm to further test the results of the ICCF method, where {\sc javelin} algorithm fits the light curves using a damped random walk (DRW) model with amplitude and time scale of the variability. A top-hat transfer function (TF) is convolved with the driving light curve and the best-fit model parameters such as time lag $\tau$ are found through the Markov Chain Monte Carlo method. We restrict the lag we search in a range in 0-400 days and width range in 0-400 days in the first attempt. We get time lag measurements of 10 sources with long-term and high-cadence observations, which are described in detail in \autoref{lag_analysis}. We adopt the time lags from the ICCF method as primary results in the following analysis, where the time lags are listed in \autoref{table_lag}. 
+Dust reverberation mapping provides a method to explore the properties of AGN torus, where the changes of the disk emission will lead to the variation of infrared emission from the torus but with a time lag due to the signal travel. The continued observations of {\it WISE}, combined with several ground-based optical transient surveys (e.g., All-sky Automated Survey for Supernovae, ASAS-SN) and space-telescope observations (e.g., \swift\,), offer a good opportunity to explore the possible dust structures in these CLAGNs. We adopt the data of $V$ band from the ASAS-SN \citep[][]{2014ApJ...788...48S,2017PASP..129j4502K,2019MNRAS.485..961J}, \uvot\, and mid-IR data from the {\it WISE} to estimate the mid-IR time lag ($\tau$) for CLAGNs. We select 22 bright CLAGNs (e.g., $<W1>$ less than 11 mag) with strong mid-IR variation ($\Delta W1>0.3$ mag), which have good $V$ band and mid-IR band monitorings. For NGC 1566, we adopt the photometric $V$ band data of NGC 1566 from the ASAS-SN and \uvot\,, and the re-binned $W1$/$W2$ band data from the {\it WISE} in each visit to estimate the time lag. We use the tool \textit{uvotmaghist} to do the aperture photometry for V-band data of \uvot\,. The source aperture radius is 3$\arcsec$ and the background is a blank region with a much larger radius. We find that the flux of NGC 1566 in ASAS-SN is systematically higher than that of \uvot\,, which is probably contaminated by the host galaxy due to the poor angular resolution \citep[see ][]{2017PASP..129j4502K}. We then subtract the average offset of V-band data from ASAS-SN data, which is determined from the quasi-simultaneous (within 1 day of the interval) observations of ASAS-SN and \uvot\,. For other sources, we only use the $V$ band data from ASAS-SN and the re-binned $W1$/$W2$ data in each visit with good observational overlaps to estimate the time lags. The $V$ band data are binned in 30 days for some sources with complex short-term variability.
 
-%(see Appendix for more details for the data of each source)
+We use the interpolation cross-correlation function \citep[ICCF;][]{1998PASP..110..660P,2018ascl.soft05032S} in a range of 0--400 days (corresponding to $\sim 70000 R_g$ for $M_\mathrm{BH}=10^8 M_{\odot}$) for the first attempt to estimate $\tau$ and then further limited the range according to the posterior of $\tau$. The interpolation time steps of 5 days are applied to the $V$ and the $W1$/$W2$ band light curves. The flux randomization and random subset selection methods are employed with 50000 realizations in the Monte Carlo simulation to estimate the centroid time lags and the uncertainties\footnote{The code \texttt{pyCCF} is available in \url{http://ascl.net/code/v/1868}}. We also use {\sc javelin} algorithm to further test the results of the ICCF method, where {\sc javelin} algorithm fits the light curves using a damped random walk (DRW) model with amplitude and time scale of the variability. A top-hat transfer function (TF) is convolved with the driving light curve and the best-fit model parameters such as time lag $\tau$ are found through the Markov Chain Monte Carlo method. We restrict the lag and width in the range of 0--400 days for the first attempt. Finally,  we get time lag measurements of 15 sources with maximum cross-correlation coefficient $r>0.6$, which are shown in Figure 3 and \autoref{lag_analysis}. In most cases, two methods give the roughly consistent results. Later on, we adopt the time lags from the {\sc javelin} method as primary results in the following analysis, where the time lags are listed in \autoref{table_lag}. 
 
-To explore the possible correlation between dust-reverberation time lag ($\tau_{W1}$) and bolometric luminosity ($L_\mathrm{bol}$), we estimate the bolometric luminosities of CLAGNs from the X-ray luminosity through a bolometric correction of $L_{\mathrm{bol}}=8 \times L_{\mathrm{14-195 keV }}$ \citep[e.g.,][]{2009MNRAS.392.1124V}, where the X-ray data are obtained from the 105-Month Swift-BAT All-sky Hard X-Ray Survey reported in \citet{2018ApJS..235....4O}. {\color{red}The bolometric luminosity of PG 1535+547 we adopt is $\sim 1.4\times \, 10^{45} erg\, s^{-1}$ estimated from [O~{\small III}] line by empirical correlation of \citet{2006ApJ...653..137Z}, since PG 1535+547 is not included in the above \bat\, survey}. The correlation between $\tau_{W1}$ and $L_\mathrm{bol}$ for CLAGNs is shown in \autoref{fig:tau_L}. It can be found that the brighter CLAGNs have longer time delays. We apply a Spearman's rank correlation coefficient to test the correlation between log$\tau$ and log$L_{bol}$ for CLAGNs, which yields a coefficient of $0.97$ ($p=5.2\times10^{-6}$). We then use UltraNest\footnote{\url{https://johannesbuchner.github.io/UltraNest/}} package \citep{2021JOSS....6.3001B} to fit the linear log$\tau$-log($L_{bol}/10^{11} L_{\odot}$) correlation of CLAGNs with errors considered. The fitting result shows a slope of $0.29^{+0.04}_{-0.03}$ with a scatter of $0.02^{+0.04}_{-0.01}$ (solid line). The slope ($0.29^{+0.04}_{-0.03}$) of the $\tau$-$L_{bol}$ correlation is slightly lower than the slope ($0.47 \pm 0.06$) from the fitting of PG quasars (dashed line) in \citet[][]{2019ApJ...886...33L}.
+\begin{figure}[b]\label{fig:lag_NGC1566}
+\begin{tikzpicture}
+    \matrix[matrix of nodes]{
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC1566_lag.pdf} & \hspace{1em} & \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC1566_lag_w2.pdf} \\
+    };
+\end{tikzpicture}
+\caption{Dust reverberation mapping analysis result for NGC 1566 as an example, and other sources are presented in Appendix. Left panel shows the light curves and the posterior of time lag between $V$ and $W1$ band. Right panel shows the light curves and the posterior of time lag between $V$ and $W2$ band.}
+\end{figure}
+
+\begin{table}
+\renewcommand{\arraystretch}{1.5}
+ \caption{Mid-IR time lag results of CLAGNs.
+}
+ \label{table_lag}
+ \begin{center}
+ \begin{tabular}{lccccccc}
+ \hline\hline
+Name & log($L_\mathrm{bol}$) & \multicolumn{2}{c}{$\tau_\mathrm{W1}$} & \multicolumn{2}{c}{$\tau_\mathrm{W2}$} &Type \\ 
+      &                      &   ICCF     &  {\sc javelin}   &    ICCF & {\sc javelin} &   \\ \hline 
+3C 390.3 & 45.79 & $180.5_{-16.6}^{+18.9}$ & $186.5_{-9.5}^{+11.3}$ & $184.8_{-21.3}^{+25.0}$ & $200.1_{-10.6}^{+26.4}$ & O \\
+HE 1136-2304 & 44.31 & $127.6_{-43.9}^{+68.3}$ & $178.7_{-47.6}^{+54.9}$ & $177.0_{-62.6}^{+70.6}$ & $196.8_{-28.9}^{+50.8}$ & O \\
+Mrk 530 & 44.90 & $212.2_{-39.7}^{+15.2}$ & $215.2_{-6.5}^{+6.1}$ & $215.0_{-20.3}^{+12.9}$ & $216.8_{-6.5}^{+11.4}$ & O \\
+Mrk 590 & 44.13 & $57.9_{-20.0}^{+17.8}$ & $97.0_{-29.2}^{+30.6}$ & $56.6_{-21.3}^{+13.8}$ & $115.0_{-36.5}^{+30.1}$ & O \\
+Mrk 6 & 44.59 & $141.6_{-11.0}^{+31.7}$ & $170.3_{-15.4}^{+13.5}$ & $180.4_{-15.1}^{+16.6}$ & $222.8_{-34.8}^{+9.1}$ & O \\
+Mrk 609 & 44.43 & $173.0_{-37.9}^{+43.6}$ & $239.9_{-19.0}^{+33.0}$ & $187.0_{-60.7}^{+49.5}$ & $262.3_{-18.8}^{+19.5}$ & O \\
+Mrk 926 & 45.66 & $213.8_{-31.0}^{+25.3}$ & $242.1_{-9.8}^{+11.7}$ & $252.5_{-38.3}^{+27.5}$ & $273.1_{-13.3}^{+14.2}$ & O \\
+NGC 1566 & 42.94 & $37.1_{-11.9}^{+23.2}$ & $22.3_{-7.1}^{+8.5}$ & $37.6_{-12.2}^{+27.8}$ & $23.1_{-3.5}^{+11.8}$ & O \\
+NGC 2617 & 43.77 & $93.8_{-17.6}^{+17.0}$ & $69.8_{-12.6}^{+11.9}$ & $93.5_{-17.0}^{+19.1}$ & $73.9_{-16.0}^{+9.7}$ & O \\
+NGC 3516 & 44.19 & $91.1_{-31.4}^{+64.0}$ & $88.5_{-34.1}^{+48.5}$ & $100.7_{-28.5}^{+54.4}$ & $119.8_{-37.5}^{+43.3}$ & O \\
+NGC 4051 & 42.61 & $22.3_{-10.0}^{+10.4}$ & $26.2_{-11.4}^{+17.0}$ & $24.8_{-12.2}^{+10.2}$ & $29.0_{-12.3}^{+20.9}$ & X \\
+NGC 4151 & 44.08 & $74.4_{-19.5}^{+40.8}$ & $77.6_{-12.9}^{+26.1}$ & $99.3_{-32.6}^{+40.7}$ & $89.4_{-12.2}^{+17.0}$ & O \\
+NGC 5548 & 44.66 & $162.7_{-31.7}^{+37.2}$ & $132.0_{-4.8}^{+5.7}$ & $207.3_{-29.0}^{+25.7}$ & $236.3_{-5.7}^{+4.7}$ & O \\
+NGC 7469 & 44.53 & $131.2_{-22.4}^{+37.9}$ & $145.9_{-11.9}^{+8.5}$ & $159.7_{-29.5}^{+39.4}$ & $152.4_{-11.2}^{+17.5}$ & X \\
+PG 1535+547 & 45.15 & $155.0_{-25.6}^{+22.0}$ & $169.3_{-4.0}^{+11.7}$ & $160.9_{-35.4}^{+19.5}$ & $176.4_{-5.3}^{+6.4}$ & X \\
+\hline\hline
+\end{tabular}
+\end{center}
+Note. The table lists source name, bolometric luminosity, time lag between $V$ band and $W1$/$W2$ band from the ICCF and {\sc javelin} method , CLAGN type (``O'' for optical CLAGN and ``X'' for X-ray CLAGN). 
+\end{table}
 
 
-%The bolometric luminosity of NGC 1566 is $\sim 8.7\times \, 10^{42} erg\, s^{-1}$ (method??).
-%This is consistent with the result ( 0.09--7.11 $\times \, 10^{43} erg\, s^{-1}$) from X-ray luminosity \citep[see][]{2021MNRAS.507..687J} through a bolometric correction of $L_{bol}=20 L_{\mathrm{2-20 keV}}$ \citep[e.g.,][]{2009MNRAS.392.1124V}. 
+To explore the possible correlation between time lag ($\tau$) and bolometric luminosity ($L_\mathrm{bol}$), we estimate the bolometric luminosities of CLAGNs from the X-ray luminosity through a bolometric correction of $L_{\mathrm{bol}}=8 \times L_{\mathrm{14-195 keV }}$ \citep[e.g.,][]{2009MNRAS.392.1124V}, where the X-ray data are obtained from the 105-Month Swift-BAT All-sky Hard X-Ray Survey reported in \citet{2018ApJS..235....4O}. PG 1535+547 is not included in the above \bat\, survey and we adopt $L_{\mathrm{\rm bol}}\sim 1.4\times \, 10^{45} erg\, s^{-1}$, which is estimated from [O~{\small III}] line width by \citet{2006ApJ...653..137Z}. The correlation between $\tau_{\rm{W1}}$/$\tau_{\rm{W2}}$ and $L_\mathrm{bol}$ for CLAGNs is shown in \autoref{fig:tau_L}.
+
+It can be found that the brighter CLAGNs have longer time lags (Spearman's rank correlation coefficient $r=0.82$ with a probability of $p=1.7\times10^{-4}$ for $\tau_{\rm{W1}}$-$L_\mathrm{bol}$ and $r=0.81$ with a probability of $p=2.5\times10^{-4}$ for $\tau_{\rm{W2}}$-$L_\mathrm{bol}$). We use UltraNest\footnote{\url{https://johannesbuchner.github.io/UltraNest/}} package, which implements nested sampling to constrain the model parameters \citep{2021JOSS....6.3001B}, to fit the linear log$\tau$-log($L_{\mathrm{bol}}$) correlation for the 15 CLAGNs using the following equation: 
+\begin{equation}
+\mathrm{log}(\tau/\mathrm{day})=a\times\mathrm{log}(L_{\mathrm{bol}}/10^{11} L_{\odot})+b.
+\end{equation}
+
+We get \begin{equation}
+\mathrm{log}(\tau_{\rm{W1}}/\mathrm{day})= 0.28^{+0.07}_{-0.06}\times \mathrm{log}(L_{\mathrm{bol}}/10^{11} L_{\odot})+ 2.12^{+0.05}_{-0.05}
+\end{equation} for the $W1$ band, and 
+\begin{equation}
+\mathrm{log}(\tau_{\rm{W2}}/\mathrm{day})= 0.28^{+0.06}_{-0.06}\times \mathrm{log}(L_{\mathrm{bol}}/10^{11} L_{\odot})+ 2.20^{+0.04}_{-0.05}
+\end{equation}for the $W2$ band. The CLAGNs still follow a consistent $\tau$-$L_{\mathrm{bol}}$ correlation with that found for the 87 luminous Palomar--Green quasars \citep[usually with $L_{\mathrm{bol}} \ge 10^{11}L_{\odot}$, see ][]{2019ApJ...886...33L} within the scatter, and the best fitting results are listed in \autoref{table_tau_L_fit}.
 
 
 
-\input{timelag_table}
-%\input{timelag_type}
+
+\begin{figure}[h!]
+\centering
+	% To include a figure from a file named example.*
+	% Allowable file formats are eps or ps if compiling using latex
+	% or pdf, png, jpg if compiling using pdflatex
+	\includegraphics[width=0.6\textwidth]{pic/tau_L_correlation_clagn_J_w1_w2.pdf}
+    \caption{The correlation between the time lag $\tau$ and the bolometric $L_{\rm bol}$ for CLAGNs, where $\tau$ is the time lag between $V$ band and $W1$/$W2$ band. The solid line is the best fitting for CLAGNs. Grey circles represent PG quasars \citep{2019ApJ...886...33L} for comparison. The dashed line represents the best fitting for PG quasars in \citet{2019ApJ...886...33L} and the CLAGNs in this work. } 
+    \label{fig:tau_L}
+\end{figure}
+
+\begin{table}[h!]
+\renewcommand{\arraystretch}{1.5}
+ \caption{The best fitting results of $\tau$-$L_{\mathrm{bol}}$ correlation for CLAGNs and QSOs through UltraNest package.
+}
+ \label{table_tau_L_fit}
+ \begin{center}
+ \begin{tabular}{lcccccc}
+ \hline\hline
+Sample    & \multicolumn{3}{c}{$W1$} &   \multicolumn{3}{c}{$W2$}      \\ %\hline
+           &    $a$    & $b$   &    scatter   &  $a$            &     $b$    & scatter        \\ \hline
+CLAGNs      &    $0.28^{+0.07}_{-0.06}$ & $2.12^{+0.05}_{-0.05}$ & $0.14^{+0.04}_{-0.03}$  & $0.28^{+0.06}_{-0.06}$  &  $2.20^{+0.04}_{-0.05}$     &  $0.15^{+0.05}_{-0.03}$  \\ 
+PG quasars    &    $0.39^{+0.04}_{-0.04}$ & $2.19^{+0.05}_{-0.06}$  &   $0.23^{+0.02}_{-0.02}$   & $0.36^{+0.04}_{-0.04}$  & $2.29^{+0.06}_{-0.05}$    & $0.22^{+0.02}_{-0.02}$  \\
+CLAGNs \& PG quasars &   $0.39^{+0.03}_{-0.03}$ & $2.18^{+0.03}_{-0.03}$ & $0.22^{+0.02}_{-0.01}$ & $0.37^{+0.03}_{-0.03}$   & $2.26^{+0.04}_{-0.04}$        &$0.21^{+0.02}_{-0.02}$   \\ 
+
+\hline\hline
+\end{tabular}
+\end{center}
+Note. The slope (a), intercept (b) and scatter of the best fitting for $\tau$-$L_{\mathrm{bol}}$ correlation. The data of PG quasars are adopted from \citet{2019ApJ...886...33L}.
+\end{table}
+
 
 \section{Conclusion and Discussion} \label{sec:dis}
- We perform an analysis on the MIR data of {\it WISE} for a sample of both X-ray and optical CLAGNs to explore the possible physical mechanism behind them. We find that the Eddington scaled MIR luminosity of CLAGNs is lower than that of QSOs but higher than that of LLAGNs. The majority of CLAGNs shows strong MIR variabilities, where the variability $\sigma_{m}$ is stronger than that of both LLAGNs and QSOs. The color of $W1-W2$ also shows a wider distribution in CLAGNs, where brighter and fainter CLAGNs are similar to QSOs and LLAGNs, respectively. The above results support that the CLAGNs most possibly stay in a transition stage. Based on the MIR and optical variability, we estimate the time delays of 10 CLAGNs, where these sources still roughly follow the $\tau_{W1}-L_\mathrm{bol}$ correlation as defined by QSOs. The dust echo in CLAGNs supports that the dust reprocessing and the large variability in both optical CLAGNs and X-ray CLAGNs are triggered by the change of accretion rate.
-  
-\subsection{Transition state of CLAGNs}
-
-The study of the intrinsic physics of CLAGNs will help us to understand the nature of accretion flow and the evolution of galaxies. Furthermore, the physical mechanism for the two types of CLAGNs (optical CLAGNs and X-ray CLAGNs) is also quite unclear. Since the MIR emission is produced by dust heated by the UV radiation of the accretion disk, the MIR properties of CLAGNs will shed light on their central engine. Most of CLAGNs show strong variation in the MIR band (e.g., more than 85\% sources have maximum variation magnitude $\Delta>0.3$ in $W$1 band), which include 6 X-ray CLAGNs (totally 13). The variation suggests that most of the optical and X-ray CLAGNs cannot be simply explained by the motion of absorbing clouds moving in/out of our line of sight, where the changing look should be correlated with the variation of the accretion disk (e.g., change of disk structure, disk wind, etc). The Eddington ratio of MIR luminosity for CLAGNs just stays between QSOs and LLAGNs, where the standard accretion disk and ADAF are widely believed in QSOs and LLAGNs, respectively. The average value of $L_\mathrm{W1}/L_\mathrm{Edd} \sim $0.5\%, which roughly corresponds to $L_\mathrm{bol}/L_\mathrm{Edd}$ at several per cent by assuming a bolometric correction factor of $\sim 10$ \citep[e.g.,][]{2012MNRAS.426.2677R}. The multi-epoch observations of CLAGNs often show that they cross a critical bolometric Eddington ratio of  $L_\mathrm{bol}/L_\mathrm{Edd}\sim$1\% during their dramatic transformations \citep[e.g.,][]{2019ApJ...883...76R,2021MNRAS.508..144G,2021MNRAS.506.4188L,2021MNRAS.507..687J}, approximately where accretion state transitions are often observed to occur in X-ray binaries \citep[e.g.,][]{2008ApJ...682..212W}. We find that the CLAGNs show stronger MIR variation compared to LLAGNs and QSOs (see \autoref{fig:var_ledd_hist}), which may be triggered by the quick disk transition between SSD and ADAF at a critical accretion rate of $\sim$1\% Eddington rate. The CLAGNs will show galaxy-like MIR color (e.g., $W1-W2\leq0.5$) when the sources enter into the faint state, while they will show AGN-like MIR color (e.g., $W1-W2\geq0.5$) when the sources enter into the bright state and vice versa \citep[e.g.,][]{2012ApJ...753...30S,2013AJ....145...55Y,2017ApJ...846L...7S}. Therefore, the color distribution of CLAGNs also supports the possible disk transition in CLAGNs. 
-
-%(MacLeod et al. 2019; Ruan et al. 2019,Liuhao,lyu etc.)
-%(Stern et al. 2012; Yan et al. 2013; Sheng et al. 2017)
-
-As the accretion rate decreases below the critical rate, the inner cold disk might transit into ADAF and the intrinsic luminosities will drop, which will reduce the ionizing photons for exciting the broad emission lines. The BLR clouds may quickly fall onto the central SMBHs when the radiation pressure suddenly decreases. The AGNs will change their optical type from type 1 to type 1.5-1.8 or even type 2 in the optical CLAGN. The sources will go back to type 1 state when the SSD is reformed as the accretion rate increases. In this work, we find more than half of X-ray CLAGNs also show strong MIR variability and they also have moderate distributions of MIR Eddington ratios, where the MIR properties of X-ray CLAGNs are not much different from the optical ones. We suggest that the X-ray CLAGNs may be also triggered by the possible change of accretion flow. The formation of disk wind and its open angle is closely correlated to the underlying SSD {\color{red}(add references?)}. Therefore, we suggest that X-ray CLAGNs may appear in CLAGNs with moderate inclination angle (e.g., $40^{\rm o}$-$60^{\rm o}$), where the line of sight will cross the disk winds. The X-ray spectral evolution in a X-ray CLAGNs of NGC 1365 does support this scenario\citep[e.g.,][]{2014MNRAS.440.3503C,2021RAA....21..199L}.
+We perform an analysis on the {\it WISE} mid-IR data for a sample of both X-ray and optical CLAGNs to explore the possible physical mechanism behind them. We find that the Eddington scaled mid-IR luminosity of CLAGNs is lower than that of QSOs but higher than that of LLAGNs. A large fraction of CLAGNs show strong mid-IR variabilities, where the average variability $<\sigma_{m}>$ is almost two times larger than that of both LLAGNs and QSOs. The color of $W1-W2$ also shows a wider distribution in CLAGNs, where brighter and fainter CLAGNs are similar to QSOs and LLAGNs, respectively. The above results support that the CLAGNs possibly stay in a transitional stage, where the moderate Eddington ratio and the strong variability may be triggered by the fast transition of accretion mode at a critical accretion rate. Based on the mid-IR and optical variability, we estimate the dust echo time lags of 15 CLAGNs, which roughly follow the correlation of $\tau-L_\mathrm{bol}$ as found in the QSOs \citep{2019ApJ...886...33L}. 
 
 
 
-%The physical connection and difference between optical and X-ray CLAGNs is still an issue. The majority of CLAGNs shows extreme MIR variability (see \autoref{fig:var_ledd_hist}). The extreme MIR variability in both optical and X-ray CLAGNs supports the variations of intrinsic accretion activity. Mean MIR variability of optical CLAGNs are significant stronger than that of LLAGNs and QSOs. With a limited sample of X-ray CLAGNs (only 13 sources), the mean MIR variability of X-ray CLAGNs are relatively lower than optical CLAGNs and similar to LLAGNs and QSOs. LLAGNs show galaxy-like MIR color, whereas the MIR color of QSOs are AGN-like. There is an obvious trend for CLAGNs that the mean color $W1$-$W2$ increases with the MIR luminosity \citep[see also][]{2017ApJ...846L...7S,2020ApJ...889...46S}. The color of X-ray CLAGN is more AGN-like, and the mean luminosity of X-ray CLAGNs is slightly higher than that of optical CLAGNs. The MIR color distribution CLAGNs is more similar to QSOs at higher luminosity range, while close to LLAGNs at lower luminosity. The distribution of MIR luminosity of CLAGNs is located between the quiescent LLAGNs and active QSOs (see \autoref{fig:distribution_ledd}). This suggests that CLAGNs are in a transitional state between LLAGNs and QSOs. The Eddington-ratio dependent ``changing-look'' phenomena have been found in some well-known CLAGNs through X-ray observation(e.g., Mrk 1018, NGC 1566, NGC 2992 and etc). The bolometric luminosity from X-ray spectral fitting cross the range of $\sim$ 1 per cent of Eddington luminosity during the ``changing-look'' events.  The mean MIR Eddington scaled luminosity $L_\mathrm{W1}/L_\mathrm{Edd} \sim $0.5 per cent is also close to the critical luminosity of accretion mode transition between ADAF and a thin accretion disk. As the intrinsic luminosity drops, the inner disk might transit into ADAF, reducing the supply of ionizing photons to excite the broad line or BLR are not sustainable when the intrinsic accretion rate declines below the critical value, and then AGN would change its optical type from type 1 to type 2 in the optical CLAGN. During the evolution of accretion disk in the X-ray CLAGN, disk-wind might form and influence the X-ray spectrum. Sources with $L_\mathrm{AGN}/L_\mathrm{Edd} \sim 0.01$ have the most extreme variability and are easily to experience the accretion mode transition, which might trigger the ``changing-look'' phenomena.  The MIR luminosity, variability, and color distribution also provide evidence that CLAGNs are in transitional accretion state with extreme variability. 
+%A $\tau-L_\mathrm{bol}$ correlation consistent with QSOs \citep{2019ApJ...886...33L} supports the same dust echo process existing in CLAGNs and luminous AGNs. 
+
+%
+
+
+\subsection{Transitional stage of CLAGNs}
+The study of the intrinsic physics of CLAGNs will help us to understand the nature of accretion flow and the evolution of galaxies. Since the mid-IR emission is mainly produced by the hot dust heated by the UV radiation of the accretion disk, the mid-IR properties of CLAGNs can shed light on their central engines. The physical mechanism for CLAGNs is still unclear, especially for X-ray CLAGNs. We find that the most of the CLAGNs show strong variation in the mid-IR band (e.g., more than 70\% sources have maximum variation magnitude $\Delta W1>0.3$). The variation suggests that most of the optical and X-ray CLAGNs cannot be simply explained by the motion of absorbing clouds moving in/out of our line of sight, where the ``changing-look'' should be correlated with the variation of the accretion disk (e.g., change of disk structure, disk wind, etc). The Eddington ratio of mid-IR luminosity for CLAGNs just stays between QSOs and LLAGNs, where the standard accretion disk and ADAF are widely believed in QSOs and LLAGNs, respectively. The average ratio of $L_\mathrm{W1}/L_\mathrm{Edd}$ for CLAGNs is $\sim $0.5\%, which roughly corresponds to $L_\mathrm{bol}/L_\mathrm{Edd}\sim$ several percent by assuming a bolometric correction factor of $\sim 10$ \citep[e.g.,][]{2012MNRAS.426.2677R}. The multi-epoch observations of several CLAGNs also show that they cross a critical bolometric Eddington ratio of $L_\mathrm{bol}/L_\mathrm{Edd}\sim$1\% during their dramatic variations \citep[e.g.,][]{2019ApJ...883...76R,2021MNRAS.508..144G,2021MNRAS.506.4188L,2021MNRAS.507..687J}, which is similar to the state transition in black hole X-ray binaries \citep[e.g.,][]{2008ApJ...682..212W}. We find that the CLAGNs show stronger mid-IR variation compared to LLAGNs and QSOs (see \autoref{fig:var_ledd_hist}), which may be triggered by the quick disk transition between SSD and ADAF at a critical accretion rate of $\sim$1\% Eddington ratio. The CLAGNs will show galaxy-like mid-IR color (e.g., $W1-W2\leq0.5$) when the sources enter into the faint state, while they will show AGN-like mid-IR color (e.g., $W1-W2\geq0.5$) when the sources enter into the bright state and vice versa \citep[e.g.,][]{2012ApJ...753...30S,2013AJ....145...55Y,2020ApJ...889...46S}. Therefore, the color distribution of CLAGNs also supports the possible disk transition in CLAGNs. 
+
+As the accretion rate decreases below the critical value, the inner cold disk might transit into ADAF and the intrinsic luminosities will drop, which will reduce the ionizing photons for exciting the broad emission lines. The AGNs will change their optical type from type 1 to type 1.5-1.8 or even type 2 as seen in the optical CLAGNs. The sources will go back to type 1 state when the SSD is reformed as the accretion rate increases. 
+
+In this work, we find around half of X-ray CLAGNs show strong mid-IR variability and they also have a moderate distribution of mid-IR Eddington ratios, where the mid-IR properties of X-ray CLAGNs are not much different from the optical ones. We suggest that the X-ray CLAGNs may be also triggered by the possible change of accretion flow. The formation of disk wind and its opening angle are closely correlated to the underlying SSD \citep[e.g.,][]{2017PASA...34...42Y,2020MNRAS.492.5540M}. Therefore, we suggest that X-ray CLAGNs may appear in CLAGNs with a moderate inclination angle (e.g., $40^{\rm o}$-$60^{\rm o}$), where the line of sight will cross the disk winds. The X-ray spectral evolution in a X-ray CLAGN of NGC 1365 does support this scenario \citep[e.g.,][]{2014MNRAS.440.3503C,2021RAA....21..199L}.
 
 
 \subsection{Dust echo in CLAGNs}
-
-Infrared reverberation mappings provide a method to explore the AGN torus, where the changes of optical emission of the accretion disk will lead to the variation of infrared emission but with a time lag due to the signal travel. The dust reverberation mapping can be applied even to some not very heavily obscured AGNs since only variabilities are considered. We explore the dust echo $\tau_{W1}$ for 10 CLAGNs based on MIR and optical multi-epoch observations, which include 7 optical CLAGNs and 3 X-ray CLAGNs. Several CLAGNs are famous nearby Seyferts, where the infrared reverberation mappings have been explored in former works. The time lags between K band (2.19 $\mu$m) and V band of 6 CLAGNs (Mrk 590, NGC 3516, NGC 4051, NGC 4151, NGC 5548, and NGC 7469) in a sample of 17 Seyfert 1 AGNs have been reported \citep[see][]{2014ApJ...788..159K,2019ApJ...886...33L}. {\color{red}By assuming the dust size ratios $R_\mathrm{K}$: $R_{W1}$=$0.6$: $1$ \citep[see][]{2019ApJ...886...33L}, we find our results are roughly consistent with that derived from K band within $20$ per cent.}
-
-The positive correlation of dust time lag and luminosity ($\tau$-L) in AGNs is widely investigated \citep[e.g.,][]{2014ApJ...788..159K,2019ApJ...886...33L,2020MNRAS.495.2921N,2021MNRAS.501.3905M}. In CLAGNs, we find they are still strongly correlated, which is still roughly consistent with that of QSOs \citep[][]{2019ApJ...886...33L} even with a little bit shallower slope. This result further supports that the MIR variabilities of both optical CLAGNs and X-ray CLAGNs are triggered by the accretion process. The physical reason for the shallower slope is still unclear, where the transition of accretion mode may play a key role. More observations for the LLAGNs or low-luminosity CLAGNs are needed to further test this issue.  
-
-
-%It should be noted that 3 X-ray CLAGNs show no   
-
-%The time lag between MIR and optical band is a good tracer of the dust echo response to the intrinsic accretion variation. The time lags between K band (2.19 $\mu$m) and V band of 6 CLAGNs (Mrk 590, NGC 3516, NGC 4051, NGC 4151, NGC 5548, and NGC 7469) in a sample of 17 Seyfert 1 AGNs have been reported \citep[see][]{2014ApJ...788..159K,2019ApJ...886...33L}. Except for Mrk 590, the time lag measurements from \citet[][]{2014ApJ...788..159K} and \citep{2019ApJ...886...33L} are almost consistent with average difference less than $10$ per cent. We present the time lags between $W$1 and V band of several CLANGs, in addition to the CLAGNs in the 17 Seyfert 1 AGNs sample. \citet[][]{2019ApJ...886...33L} reports that the inferred dust size ratios $R_\mathrm{K}$: $R_{W1}$: $R_{W2}$ are $0.6: 1: 1.2$. If we scale the reported $\tau_\mathrm{K}$ in \citet[][]{2014ApJ...788..159K} to $\tau_{W1}$ through $\tau_{W1}= \tau_\mathrm{K}/ 0.6$. The re-scaled $\tau_{W1}$ are roughly consistent with the direct measurements of $\tau_{W1}$ in this work. The time lags between MIR and optical V band and bolometric lumonisity in both optical/X-ray CLAGNs follow a tight $\tau$-L correlation (see \autoref{fig:tau_L}), further confirms that the dust echo response to the accretion process. The $\tau$-L correlation in CLAGNs supports the variable accretion scenario. 
-
-
-%Mrk 590 & 43.84 & $ 33.8 \pm 4.20$ & O & \citet{2014ApJ...788..159K} \\
-%NGC 3516 & 43.62 & $ 73.1 \pm 4.00$ & O & \citet{2014ApJ...788..159K} \\
-%NGC 4051 & 42.66 & $ 16.5 \pm 0.60$ & X & \citet{2014ApJ...788..159K} \\
-%NGC 4151 & 43.62 & $ 48.3 \pm 0.50$ & O & \citet{2014ApJ...788..159K} \\
-%NGC 5548 & 43.87 & $ 60.9 \pm 0.30$ & O & \citet{2014ApJ...788..159K} \\
-%NGC 7469 & 44.28 & $ 88.0 \pm 0.60$ & X & \citet{2014ApJ...788..159K} \\
-%NGC 3516 & 43.84 & 53.6 & O & \citet{2019ApJ...886...33L} \\
-%NGC 4051 & 42.88 & 12.9 & X & \citet{2019ApJ...886...33L} \\
-%NGC 4151 & 43.84 & 52.2 & O & \citet{2019ApJ...886...33L} \\
-%NGC 5548 & 44.07 & 50.5 & O & \citet{2019ApJ...886...33L} \\
-%NGC 7469 & 44.45 & 56.1 & X & \citet{2019ApJ...886...33L} \\
-
-
+Mid-IR emission at $W1$ and $W2$ band mainly comes from the hot dust heated by central engine of AGNs. The dust reverberation mapping method can be applied when the source has strong optical and mid-IR variability. We explore the dust echo time lag $\tau$ for 15 CLAGNs based on mid-IR and optical multi-epoch observations, which include 12 optical CLAGNs and 3 X-ray CLAGNs. Several CLAGNs are famous nearby Seyferts, where the infrared reverberation mappings have been explored in the previous works. The mid-IR time lags ($\tau_{\mathrm{W1}} \sim 180\pm 1.4$ days and $\tau_{\mathrm{W2}}\sim 207.7\pm 0.2$ days) for PG 1535+547 reported in \citet{2019ApJ...886...33L} are roughly consistent with our results (see \autoref{table_lag}). The time lags between $K$ band (2.19 $\mu$m) and $V$ band of 6 CLAGNs (Mrk 590, NGC 3516, NGC 4051, NGC 4151, NGC 5548, and NGC 7469) in a sample of 17 Seyfert 1 AGNs have been reported \citep[see][]{2014ApJ...788..159K,2019ApJ...886...33L}. Adopting the time-lag ratio $\tau_{\mathrm{K}}$: $\tau_{\mathrm{W1}}$=$0.6$: $1$ \citep[see][]{2019ApJ...886...33L}, the derived time lags for the 6 CLAGNs from \citet[]{2014ApJ...788..159K} are roughly consistent with our results. The time-lag ratio $\tau_{\mathrm{W1}}$: $\tau_{\mathrm{W2}}$=$1$: $1.2$ for the 15 CLAGNs is also consistent with that of the luminous QSOs \citep[see][]{2019ApJ...886...33L}. The positive correlation between mid-IR time lag and bolometric luminosity ($\tau$-$L$) for AGNs has been widely investigated \citep[e.g.,][]{2014ApJ...788..159K,2019ApJ...886...33L,2019ApJ...886..150M,2020MNRAS.495.2921N,2020AJ....159..259S,2021MNRAS.501.3905M}. In CLAGNs, there is also a tight $\tau$-$L$ correlation, which is roughly consistent with that of the luminous QSOs \citep{2019ApJ...886...33L} within the errorbar (see \autoref{fig:tau_L}). The time lag of mid-IR band suggests the similar circumnuclear dust structure existing both in CLAGNs and QSOs. The $\tau$-$L$ correlation for CLAGNs is slightly shallower than expected $\tau \propto L^{0.5}$ assuming the similar dust sublimation temperature \citep{2013peag.book.....N} and a face-on viewing angle \citep{2019ApJ...886...33L}. The physical reason for this shallower slope is unclear, which might be influenced by the structure of the torus or the inclination angle.  
 
 
 
 \begin{acknowledgments}
-BL and QW were supported in part by the NSFC (grant U1931203); ZY was supported in part by the Natural Science Foundation of China (grants 11773055 and U1938114), the Youth Innovation Promotion Association of CAS (id 2020265); and WY would like to acknowledge the support in part by the National Program on Key Research and Development Project (grant 2016YFA0400804) and the National Natural Science Foundation of China (grants 11333005 and U1838203).
+BL and QW were supported in part by the Natural Science Foundation of China (grant U1931203) and the science research grants from the China Manned Space Project with NO. CMS-CSST-2021-A06; ZY was supported in part by the Natural Science Foundation of China (grants 11773055 and U1938114), the Youth Innovation Promotion Association of CAS (id 2020265); and WY would like to acknowledge the support in part by the National Program on Key Research and Development Project (grant 2016YFA0400804) and the National Natural Science Foundation of China (grants 11333005 and U1838203).
 %\vspace{5mm}
 This research has made use of WISE and NEOWISE data products from the NASA/IPAC Infrared Science Archive, which is a joint project of the University of California, Los Angeles, and the Jet Propulsion Laboratory/California Institute of Technology, funded by the National Aeronautics and Space Administration. 
 
 %This research has made use of the NASA/IPAC Extragalactic Database (NED) which is operated by the Jet Propulsion Laboratory, Caltech, under contract with the National Aeronautics and Space Administration.
 %This research has made use of MAXI data provided by RIKEN, JAXA and the MAXI team.
 
-
+%Chinese Academy of Sciences
 \end{acknowledgments}
 
 %% To help institutions obtain information on the effectiveness of their 
@@ -645,12 +612,71 @@ This research has made use of WISE and NEOWISE data products from the NASA/IPAC 
 %\listofchanges
 
 \appendix
-%\section{Source information of CLAGN}
-\newpage
-\input{timelag_analysis}
+\section{time lag analysis}\label{lag_analysis}
+
+\begin{figure}[h!]
+\begin{tikzpicture}
+    \matrix[matrix of nodes]{
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/3C390.3lag1.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/3C390.3lag1_w2.pdf} \\
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/HE1136-2304lag1.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/HE1136-2304lag1_w2.pdf} \\
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/Mrk530_lag.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/Mrk530_lag_w2.pdf} \\
+    };
+\end{tikzpicture}
+%\label{fig:lag_clagn0}
+%\caption{Dust-reverberation time lag analysis for CLAGNs.}
+\end{figure}  
+
+\begin{figure}[h!]
+\begin{tikzpicture}
+    \matrix[matrix of nodes]{
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/Mrk590lag.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/Mrk590lag_w2.pdf} \\
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/Mrk6lag1.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/Mrk6lag1_w2.pdf} \\
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/Mrk609lag1.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/Mrk609lag1_w2.pdf} \\    
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/Mrk926lag.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/Mrk926lag_w2.pdf} \\
+    };
+\end{tikzpicture}
+%\label{fig:lag_clagn0}
+%\caption{Dust-reverberation time lag analysis for CLAGNs.}
+\end{figure}  
+\begin{figure}[h!]
+\begin{tikzpicture}
+    \matrix[matrix of nodes]{
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC2617lag1.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC2617lag1_w2.pdf} \\   
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC3516lag.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC3516lag_w2.pdf} \\
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC4051lag.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC4051lag_w2.pdf} \\
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC4151lag.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC4151lag_w2.pdf} \\
+    };
+\end{tikzpicture}
+%\label{fig:lag_clagn1}
+%\caption{Dust-reverberation time lag analysis for CLAGNs.}
+\end{figure}  
 
 
-
+\begin{figure}[h!]
+\begin{tikzpicture}
+    \matrix[matrix of nodes]{
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC5548lag.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC5548lag_w2.pdf} \\    
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC7469lag.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/NGC7469lag_w2.pdf} \\
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/PG1535p547lag1.pdf}& \hspace{1em}  &
+    \includegraphics[width=0.45\textwidth]{pic/lag_pic/PG1535p547lag1_w2.pdf} \\   
+    };
+\end{tikzpicture}
+%\label{fig:lag_clagn2}
+\caption{Mid-IR dust reverberation mapping analysis results for CLAGNs.}
+\end{figure}  
 \end{document}
 
 % End of file `sample631.tex'.

@@ -61,15 +61,29 @@ from Marzena Śniegowska*1,2 | Mikołaj Grzędzielski2 | Bożena Czerny2 | Agnie
 
 
 
+\begin{figure}[H]
+%\centering
+\vspace{-2cm}
+\begin{subfigure}
+   \includegraphics[width=0.45\textwidth]{pic/NGC1566_lag.png}
+    %\caption{Dust-reverberation time lag analysis for NGC 1566. }
+    \label{fig:lag_NGC1566}
+    \end{subfigure}
+    \begin{subfigure}
+	\includegraphics[width=0.45\textwidth]{pic/PG1535p547lag1.png}
+    %\caption{Dust-reverberation time lag analysis for PG 1535+547. }
+    \label{fig:lag_PG1535}
+\end{subfigure}
+\end{figure}
 
 
-
-
-
-
-
-
-
+\begin{figure}
+\begin{tikzpicture}
+    \matrix[matrix of nodes]{
+    \includegraphics[width=0.45\textwidth]{pic/NGC1566_lag.png}\label{fig:lag_NGC1566} & \includegraphics[width=0.45\textwidth]{pic/PG1535p547lag1.png}\label{fig:lag_PG1535} \\
+    };
+\end{tikzpicture}
+\end{figure}
 
 
 To quantitatively study variability, we calculated the intrinsic 
@@ -245,7 +259,8 @@ The time lag results from \citet{2014ApJ...788..159K} and \citet{2019ApJ...886..
 %We adopt the bolometric luminosity $\sim 3.9\times \, 10^{44} erg\, s^{-1}$, $\sim 4.6\times \, 10^{45} erg\, s^{-1}$, and $\sim 3.4\times \, 10^{44} erg\, s^{-1}$ for Mrk 6, Mrk 926, and NGC 7469, repectively. 
 
 
-
+%The bolometric luminosity of NGC 1566 is $\sim 8.7\times \, 10^{42} erg\, s^{-1}$ (method??).
+%This is consistent with the result ( 0.09--7.11 $\times \, 10^{43} erg\, s^{-1}$) from X-ray luminosity \citep[see][]{2021MNRAS.507..687J} through a bolometric correction of $L_{bol}=20 L_{\mathrm{2-20 keV}}$ \citep[e.g.,][]{2009MNRAS.392.1124V}. 
 
 The time lags between optical V band and MIR $W$1 band are $37.1^{+25.7}_{-11.9}$, $142.1^{+30.0}_{-11.5}$, $213.8^{+25.3}_{-31.0}$, $153.2^{+21.2}_{-25.3}$, and $131.2^{+37.9}_{-22.4}$ days for NGC 1566, Mrk 6, Mrk 926, PG 1535+547, and NGC 7469, respectively.
 
